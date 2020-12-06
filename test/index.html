@@ -15,6 +15,7 @@
       left: 100px;
       transition: transform 2s;
     }
+
     #box:hover {
       transform: rotate(180deg);
     }
@@ -29,8 +30,12 @@
     let rgb = new Array(3);
     function changeColor(element) {
       randomColor();
-      element.setAttribute('style', 'background-color:' +
-        'rgb(' + rgb[0] + ',' + rgb[1] + ',' + rgb[2] + ')');
+      // element.setAttribute('style', 'background-color:' +
+      //   'rgb(' + rgb[0] + ',' + rgb[1] + ',' + rgb[2] + ')');
+
+      /* https://stackoverflow.com/questions/610406/javascript-equivalent-to-printf-string-format */
+      element.setAttribute('style', `background-color: rgb(${rgb[0]},${rgb[1]},${rgb[2]})`);
+
       // console.log(element);
       // console.log('set', rgb);
     }
