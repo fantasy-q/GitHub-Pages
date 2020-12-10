@@ -1,5 +1,6 @@
 window.onload = function () {
-  let url = "http://localhost:5500/Head-First-HTML5/chapter6/sales.json"
+  // let url = "http://localhost:5500/Head-First-HTML5/chapter6/sales.json"
+  let url = "https://fantasy-q.github.io/example/Head-First-HTML5/chapter6/sales.json"
   let request = new XMLHttpRequest();
   request.open("GET", url);
   request.onload = function () {
