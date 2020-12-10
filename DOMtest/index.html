@@ -25,7 +25,7 @@
       font-size: large;
       background-color: orange;
       vertical-align: middle;
-      /* text-align: center; */
+      text-align: center;
     }
 
   </style>
@@ -49,12 +49,26 @@
       /* BODY */
       // body 还没加载，所以是 null，放到 </body > 前或使用 window.onload
       DOMTEST(document.body);
+      /* METHODS */
+      DOMTEST(document.getElementById("box"));
+      DOMTEST(document.getElementById("box").innerHTML);
+      DOMTEST(document.getElementById("box").outerHTML);
+
+
+
+
+      // document.getElementById("box").onclick = alert('sdfsdf');
+
+
+
+
+
+
 
     }
     function DOMTEST(parameter) {
       console.log(parameter, '\n' + 'type is ' + typeof (parameter));
     }
-
   </script>
 </head>
 
