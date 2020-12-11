@@ -6,7 +6,16 @@ window.onload = function () {
   window.setInterval(handleRefresh, 3000);
 }
 function handleRefresh() {
-  let url = "http://gumball.wickedlysmart.com/?callback=updateSales_JSONP";
+  /** <URL> = https://gumball.wickedlysmart.com/?callback=updateSales_JSONP
+  
+  * Use http on GitHub
+      Mixed Content: The page at '<URL>' was loaded over HTTPS, but requested an insecure script '<URL>'. 
+      This request has been blocked; the content must be served over HTTPS. 
+
+  * Use https on Local
+      GET <URL> net::ERR_CERT_COMMON_NAME_INVALID
+  */
+  let url = "//gumball.wickedlysmart.com/?callback=updateSales_JSONP";
   let newScriptElement = document.createElement("script");
   newScriptElement.setAttribute("src", url);
   newScriptElement.setAttribute("id", "jsonp");
