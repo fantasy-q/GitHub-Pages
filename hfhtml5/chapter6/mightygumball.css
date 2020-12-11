@@ -1,8 +1,9 @@
 /* mightgumball.css */
 
 body {
-  margin-left: 40px;
-  margin-right: 40px;
+  margin: 0px, 5px;
+  /* margin-left: 10px;
+  margin-right: 10px; */
   text-align: center;
 }
 
@@ -17,12 +18,11 @@ div#sales {
   /* padding: 0px; */
 
   /* 使 div 在页面上居中 */
-  width: 500px;
+  /* width: 400px;
   position: relative;
   left: 50%;
   transform: translate(-50%);
-
-  text-align: left;
+  text-align: left; */
 }
 
 div.salesItem {
@@ -63,8 +63,11 @@ span.name {
 
 span.date {
   font-family: 'Courier New', Courier, monospace;
-  color: black;
   font-weight: bold;
+  font-size: small;
+  color: black;
+
   float: left;
-  margin-right: 30px;
+  margin-right: 5px;
+  padding-top: 4px;
 }
