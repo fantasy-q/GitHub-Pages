@@ -1,0 +1,29 @@
+<!-- JSONP：使用 JavaScript 从另一个域获取数据 -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Animal Says</title>
+  <script>
+    // function animalSays(type, sound) {
+    //   alert(type + " says " + sound)
+    // }
+    function animalSays(animal) {
+      alert(animal.type + " says " + animal.sound)
+    }
+  </script>
+</head>
+
+<body>
+  <header>
+    <h1>Animal Says</h1>
+  </header>
+  <!-- 注意顺序，先定义函数，再调用 -->
+  <script src="https://wickedlysmart.com/hfhtml5/chapter6/dog3.js"></script>
+  <script src="https://wickedlysmart.com/hfhtml5/chapter6/cat3.js"></script>
+</body>
+
+</html>

@@ -9,17 +9,20 @@ body {
 div#sales {
   background-color: #d9d9d9;
   -webkit-border-radius: 6px;
+
   border-radius: 6px;
   border: 1px solid #d9d9d9;
   /* 垂直 margin 合并 */
   /* margin: 10px 0px 0px 0px; */
   /* padding: 0px; */
-  
+
   /* 使 div 在页面上居中 */
   width: 500px;
   position: relative;
   left: 50%;
   transform: translate(-50%);
+
+  text-align: left;
 }
 
 div.salesItem {
@@ -48,6 +51,20 @@ div.salesItem:last-child {
   border-bottom-right-radius: 6px;
 }
 
-span.number {
+span.sales {
   color: red;
+  font-weight: bold;
+}
+
+span.name {
+  color: rgb(121, 29, 118);
+  font-weight: bold;
+}
+
+span.date {
+  font-family: 'Courier New', Courier, monospace;
+  color: black;
+  font-weight: bold;
+  float: left;
+  margin-right: 30px;
 }
