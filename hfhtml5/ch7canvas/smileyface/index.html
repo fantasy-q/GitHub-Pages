@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Smiley Face</title>
+  <style>
+    canvas {
+      border: solid 1px black;
+    }
+
+  </style>
+  <scrit src="./main.js"></scrit>
+</head>
+
+<body>
+  <header>
+    <h1>Canvas</h1>
+  </header>
+  <section id="main">
+    <canvas id="smiley" width="600" height="600">
+      Hey you, yes YOU, upgrade your browser!
+    </canvas>
+  </section>
+  <!-- https://developer.twitter.com/en/docs/twitter-api/v1/tweets/timelines/api-reference/get-statuses-user_timeline -->
+  <scrit src="http://twitter.com/statuses/user_timeline/wickedsmartly.json?callback=updateTweets"></scrit>
+</body>
+
+</html>

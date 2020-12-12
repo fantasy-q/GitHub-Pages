@@ -1,0 +1,73 @@
+/* mightgumball.css */
+
+body {
+  margin: 0px, 5px;
+  /* margin-left: 10px;
+  margin-right: 10px; */
+  text-align: center;
+}
+
+div#sales {
+  background-color: #d9d9d9;
+  -webkit-border-radius: 6px;
+
+  border-radius: 6px;
+  border: 1px solid #d9d9d9;
+  /* 垂直 margin 合并 */
+  /* margin: 10px 0px 0px 0px; */
+  /* padding: 0px; */
+
+  /* 使 div 在页面上居中 */
+  /* width: 400px;
+  position: relative;
+  left: 50%;
+  transform: translate(-50%);
+  text-align: left; */
+}
+
+div.salesItem {
+  font-family: Verdana, Helvetica, sans-serif;
+  color: #434343;
+  /* block 元素，文字垂直居中可以用 padding */
+  padding: 10px;
+  /* vertical-align: middle; */
+}
+
+div.salesItem:nth-child(2n) {
+  background-color: #fafafa;
+}
+
+div.salesItem:first-child {
+  -webkit-border-top-left-radius: 6px;
+  -webkit-border-top-right-radius: 6px;
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
+}
+
+div.salesItem:last-child {
+  -webkit-border-bottom-left-radius: 6px;
+  -webkit-border-bottom-right-radius: 6px;
+  border-bottom-left-radius: 6px;
+  border-bottom-right-radius: 6px;
+}
+
+span.sales {
+  color: red;
+  font-weight: bold;
+}
+
+span.name {
+  color: rgb(121, 29, 118);
+  font-weight: bold;
+}
+
+span.date {
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: bold;
+  font-size: small;
+  color: black;
+
+  float: left;
+  margin-right: 5px;
+  padding-top: 4px;
+}

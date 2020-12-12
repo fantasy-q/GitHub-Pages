@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TweetShirt</title>
+  <style>
+    canvas {
+      border: 1px solid black;
+    }
+
+  </style>
+  <script src="./tweetshirt.js"></script>
+</head>
+
+<body>
+  <header>
+    <h1>Canvas</h1>
+  </header>
+  <section id="main">
+    <canvas id="tshirtCanvas" width="600" height="200">
+      Hey you, yes YOU, upgrade your browser
+    </canvas>
+    <form>
+      <p><label for="backgroundColor">Select background color:</label>
+        <select name="" id="backgroundColor">
+          <option value="white">White</option>
+          <option value="black">Black</option>
+        </select>
+      </p>
+      <p><label for="shape">Circles or Squares:</label>
+        <select name="" id="shape">
+          <option value="none">Neither</option>
+          <option value="circles" selected>Circles</option>
+          <option value="squares" >Squares</option>
+        </select>
+      </p>
+      <p><label for="foregroundColor">Select text color:</label>
+        <select name="" id="foregroundColor">
+          <option value="black">Black</option>
+          <option value="white">White</option>
+        </select>
+      </p>
+      <p><label for="tweets">Pick a tweet:</label>
+        <select name="" id="tweets">
+        </select>
+      </p>
+      <p><input type="button" id="previewButton" value="Preview">
+      </p>
+      <p><input type="button" id="buyButton" value="Buy">
+      </p>
+    </form>
+  </section>
+</body>
+
+</html>

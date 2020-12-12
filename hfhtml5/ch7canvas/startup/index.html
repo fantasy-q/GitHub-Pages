@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Look What I Drew</title>
+  <style>
+    canvas {
+      border: solid 1px black;
+    }
+
+  </style>
+  <script>
+    window.onload = function () {
+      let canvas = document.getElementById("tshirtCanvas");
+      if (canvas.getContext) {
+        // you have canvas
+        var context = canvas.getContext("2d");
+      } else {
+        // sorry no canvas API support
+        alert("Hey you, yes YOU, upgrade your browser")
+      }
+      context.fillRect(10, 10, 100, 100);
+      page299_test("backgroundColor");
+      page299_test("shape");
+      page299_test("foregroundColor");
+
+    }
+    function page299_test(id) {
+      let selectObj = document.getElementById(id);
+      let index = selectObj.selectedIndex;
+      let value = selectObj[index].value;
+      console.log(value);
+    }
+  </script>
+</head>
+
+<body>
+  <header>
+    <h1>Canvas</h1>
+  </header>
+  <section id="main">
+    <canvas id="tshirtCanvas" width="600" height="200">
+      Hey you, yes YOU, upgrade your browser
+    </canvas>
+    <form>
+      <p><label for="backgroundColor">Select background color:</label>
+        <select name="" id="backgroundColor">
+          <option value="white">White</option>
+          <option value="black">Black</option>
+        </select>
+      </p>
+      <p><label for="shape">Circles or Squares:</label>
+        <select name="" id="shape">
+          <option value="none">Neither</option>
+          <option value="circles">Circles</option>
+          <option value="squares">Squares</option>
+        </select>
+      </p>
+      <p><label for="foregroundColor">Select text color:</label>
+        <select name="" id="foregroundColor">
+          <option value="black">Black</option>
+          <option value="white">White</option>
+        </select>
+      </p>
+      <p><label for="tweets">Pick a tweet:</label>
+        <select name="" id="tweets">
+        </select>
+      </p>
+      <p><input type="button" id="previewButton" value="Preview">
+      </p>
+      <p><input type="button" id="buyButton" value="Buy">
+      </p>
+    </form>
+  </section>
+  <section id="description">
+    <p>画布的宽高：<br>
+      在属性中设置，画布里的内容保持不变<br>
+      在 CSS中设置，画布里的内容随之缩放<br>
+      <br>
+      若浏览器看到一个不认识的元素，默认显示其中的文本<br>
+      若浏览器支持 canvas 则忽略其中的文本<br>
+    </p>
+  </section>
+</body>
+
+</html>

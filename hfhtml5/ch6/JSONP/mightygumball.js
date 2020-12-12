@@ -84,48 +84,6 @@ function updateSales_JSONP(sales) {
   }
 }
 
-function get_data_AJAX() {
-  // let url = "http://localhost:5500/hfhtml5/chapter6/sales.json"
-  /* github 不算跨域？ */
-  let url = "https://fantasy-q.github.io/example/hfhtml5/chapter6/sales.json"
-  // let url = "http://gumball.wickedlysmart.com";
-  let request = new XMLHttpRequest();
-  request.open("GET", url);
-  request.onload = function () {
-    console.log("request.status = ", request.status);
-    if (request.status == 200) {
-      updateSales(request.responseText)
-    }
-  }
-  request.send(null);
-}
-
-function updateSales_AJAX(responseText) {
-  let salesDiv = document.getElementById("sales");
-  // salesDiv.innerHTML = responseText;
-  let sales = JSON.parse(responseText);
-  console.log(sales);
-  for (let i = 0; i < sales.length; i++) {
-    let sale = sales[i];
-    let div = document.createElement("div")
-    div.setAttribute("class", "salesItem");
-    // ----------------------------------------
-    let span_sales = document.createElement("span");
-    span_sales.setAttribute("class", "sales");
-    span_sales.innerHTML = sale.sales;
-    let span_name = document.createElement("span");
-    span_name.setAttribute("class", "name");
-    span_name.innerHTML = sale.name;
-    // ----------------------------------------
-    if (sale.sales == 1) {
-      div.innerHTML = span_name.outerHTML + " sold " + span_sales.outerHTML + " gumball";
-    } else {
-      div.innerHTML = span_name.outerHTML + " sold " + span_sales.outerHTML + " gumballs";
-    }
-    salesDiv.appendChild(div);
-  }
-}
-
 /* * * * * * * * * * * * * 自定义函数 * * * * * * * * * * * * * * */
 // 日期格式化函数来自网络
 function dateFormat(fmt, date) {
