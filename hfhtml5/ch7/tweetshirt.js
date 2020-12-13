@@ -129,7 +129,6 @@ function updateTweets(tweets) {
     let option = document.createElement("option");
     option.text = tweet.text;
     option.value = tweet.text.replace("\"", "'");
-
     tweetsSelection.options.add(option);
   }
   tweetsSelection.selectedIndex = 0;
@@ -158,7 +157,7 @@ function makeImage() {
     // 将画布转换为 base64 图片
     // chrome 禁止这种方式
     window.location = canvas.toDataURL('image/png');
-    // console.log('canvas.onclick');
+    console.log('canvas.onclick');
   };
 }
 
