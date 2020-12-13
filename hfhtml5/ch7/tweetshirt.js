@@ -155,9 +155,13 @@ function makeImage() {
   var canvas = document.getElementById("tshirtCanvas");
   canvas.onclick = function () {
     // 将画布转换为 base64 图片
-    // chrome 禁止这种方式
-    window.location = canvas.toDataURL('image/png');
-    console.log('canvas.onclick');
+    let image = canvas.toDataURL('image/png');
+    /* chrome 禁止这种方式，firefox 可以 */
+    // window.location = image;
+    /* 在新页面打开 */
+    let tempWindow = window.open('_blank');
+    tempWindow.location = image;
+    // console.log('canvas.onclick');
   };
 }
 
