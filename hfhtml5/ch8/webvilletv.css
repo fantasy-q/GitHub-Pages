@@ -1,0 +1,48 @@
+/* main content */
+
+div#tv {
+  margin: auto;
+  width: 650px;
+}
+
+div#tvConsole {
+  /* 注释掉也没区别 */
+  /* position: relative; */
+  /* top: 0px; */
+  /* left: 0px; */
+
+  /* 图片大小即为 650*770 */
+  background: url(./images/tv.png) no-repeat top left;
+  width: 650px;
+  height: 770px;
+
+  /* 背景色被图片盖住了 */
+  /* background-color: red; */
+}
+
+/* video */
+
+div#videoDiv {
+  position: relative;
+  top: 70px;
+  left: 80px;
+}
+
+video {
+  background-color: black;
+  width: 480px;
+  height: 360px;
+}
+
+div#highlight {
+  /* 置为 absolute 元素从流中移除了 */
+  position: absolute;
+  top: 0px;
+  left: 20px;
+  z-index: 1;
+
+  /* 图片大小 */
+  width: 213px;
+  height: 230px;
+
+}

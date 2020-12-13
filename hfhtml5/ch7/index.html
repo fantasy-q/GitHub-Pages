@@ -5,12 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>TweetShirt</title>
-  <style>
-    canvas {
-      border: 1px solid black;
-    }
-
-  </style>
+  <link rel="stylesheet" href="./tweetshirt.css">
   <script src="./tweetshirt.js"></script>
 </head>
 
@@ -33,7 +28,7 @@
         <select name="" id="shape">
           <option value="none">Neither</option>
           <option value="circles" selected>Circles</option>
-          <option value="squares" >Squares</option>
+          <option value="squares">Squares</option>
         </select>
       </p>
       <p><label for="foregroundColor">Select text color:</label>
@@ -42,7 +37,7 @@
           <option value="white">White</option>
         </select>
       </p>
-      <p><label for="tweets">Pick a tweet:</label>
+      <p><label for="tweets" id="tweetsLabel">Pick a tweet:</label>
         <select name="" id="tweets">
         </select>
       </p>
@@ -52,6 +47,13 @@
       </p>
     </form>
   </section>
+  <!-- API 需要认证 -->
+  <!-- <script src="http://twitter.com/statues/user_timeline/wickedly.json?callback=updateTweets"></script> -->
+  <!-- <script src="http://api.twitter.com/1/statuses/user_timeline/wickedsmartly.json?callback=updateTweets"></script> -->
+  <!-- <script src="http://tweetshirt.wickedlysmart.com/?callback=updateTweets"></script> -->
+
+  <!-- <script src="http://api.twitter.com/1.1/statuses/user_timeline/wickedsmartly.json?callback=updateTweets"></script> -->
+  <script src="./tweets/tweets_20201213.js"></script>
 </body>
 
 </html>
