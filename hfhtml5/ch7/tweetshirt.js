@@ -159,7 +159,7 @@ function makeImage() {
     /* chrome 禁止这种方式，firefox 可以 */
     // window.location = image;
     /* 在新页面打开 */
-    let tempWindow = window.open('_blank');
+    let tempWindow = window.open();
     tempWindow.location = image;
     // console.log('canvas.onclick');
   };
