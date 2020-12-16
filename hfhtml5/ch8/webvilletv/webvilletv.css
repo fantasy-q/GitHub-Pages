@@ -12,7 +12,7 @@ div#tvConsole {
   /* left: 0px; */
 
   /* 图片大小即为 650*770 */
-  background: url(./images/tv.png) no-repeat top left;
+  background: url(../images/tv.png) no-repeat top left;
   width: 650px;
   height: 770px;
 
