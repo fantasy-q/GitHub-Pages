@@ -1,0 +1,46 @@
+/* boxsizing.css */
+
+.group {
+  border: 1px solid;
+  padding: 20px;
+}
+
+.group .block {
+  width: 50%;
+  /* 元素的高度一般不声明，根据内容自适应 */
+  /* height: ; */
+  /* 改变盒子的计算方式，默认值：content-box */
+  box-sizing: content-box;
+}
+
+.group .box {
+  width: 50%;
+  box-sizing: border-box;
+}
+
+/* custom */
+article {
+  border: 10px solid;
+  background-color: #3b6fbb;
+  margin-bottom: 10px;
+  padding: 20px;
+  /* word-break: break-all; */
+  box-sizing: content-box;
+}
+
+.strong {
+  color: cyan;
+  font-weight: bold;
+  display: block;
+}
+
+.group .block-box {
+  width: calc(50% - 60px);
+  box-sizing: content-box;
+}
+
+/* .color-box {
+  width: 1040px;
+  height: 200px;
+  background-color: #4724a3;
+} */

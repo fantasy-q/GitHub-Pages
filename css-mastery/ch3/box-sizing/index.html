@@ -5,71 +5,59 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Box Sizing</title>
-  <style>
-    .group {
-      border: 1px solid;
-      padding: 5px;
-    }
-
-    .group .block {
-      background-color: #3b6fbb;
-      /* width: 33.3333%; */
-      /* width: 50%; */
-      width: 100%;
-      /* 元素的高度一般不声明，根据内容自适应 */
-      /* height: ; */
-      padding: 20px;
-      border: 10px solid;
-      /* 改变盒子的计算方式，默认值：content-box */
-      box-sizing: content-box;
-
-      margin-bottom: 10px;
-      word-break: break-all;
-    }
-
-    .group .box {
-      background-color: #3b6fbb;
-      /* width: 33.3333%; */
-      /* width: 50%; */
-      width: 100%;
-      padding: 20px;
-      border: 10px solid;
-      box-sizing: border-box;
-
-      word-break: break-all;
-    }
-
-  </style>
+  <link rel="stylesheet" href="./boxsizing.css">
+  <script src="./boxsizing.js"></script>
 </head>
 
 <body>
+
   <div class="group">
-    <span></span>
+
+    <article>
+      <span class="strong">width: 50%;</span>
+      <span class="strong">padding: 20px;</span>
+      <span class="strong">border: 10px solid;</span>
+    </article>
+
     <article class="block">
-      ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+      <h2>content-box</h2>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam dolorem rem laborum perspiciatis porro.
+        Recusandae iste, hic nostrum ipsa ipsum excepturi saepe omnis nesciunt eligendi fugit, tenetur reprehenderit
+        accusamus consequuntur!
+      </p>
     </article>
+
     <article class="box">
-      ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+      <h2>border-box</h2>
+      <p>
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Maxime sequi reprehenderit praesentium repudiandae vel
+        enim nobis incidunt consequuntur, blanditiis veritatis quibusdam illo! Saepe quae illo veniam deserunt enim
+        repellat quis.
+      </p>
     </article>
+
+    <article class="block-box">
+      <h2>content-box</h2>
+      <span class="strong">width: calc(50% - 60px);</span>
+      <p>
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Est placeat maiores doloremque. Quibusdam ullam
+        obcaecati iure numquam non enim ducimus mollitia quia sequi amet, veniam porro harum eaque placeat officia.
+      </p>
+    </article>
+
+    <!-- <article>
+      <div class="color-box"></div>
+      <h2>content-box</h2>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora non, sed excepturi iusto pariatur optio
+        blanditiis doloremque. Blanditiis tenetur harum ex. Quasi adipisci consequuntur error possimus eos fugit placeat
+        alias!</p>
+      <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Amet quibusdam ducimus iure. Suscipit tempora
+        obcaecati, doloribus amet ex animi voluptates sapiente ipsum, perspiciatis vitae assumenda nulla quisquam
+        aliquam recusandae ullam!</p>
+    </article> -->
   </div>
-  <script>
-    window.onload = () => {
-      let group = document.getElementsByClassName("group")[0];
-      let block = document.getElementsByClassName("block")[0];
-      let box = document.getElementsByClassName("box")[0];
 
-      logWidth(group);
-      logWidth(block);
-      logWidth(box);
-
-    }
-    function logWidth(element) {
-      console.log(element);
-      console.log('clientWidth:', element.clientWidth);
-      console.log('scrollWidth:', element.scrollWidth);
-      console.log('offsetWidth:', element.offsetWidth);
-    }
-  </script>
 </body>
 
 </html>
