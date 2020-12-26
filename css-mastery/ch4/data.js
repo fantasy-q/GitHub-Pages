@@ -37,6 +37,34 @@ const htmls = {
     filename: '04-27-opentype-ligatures.html',
     description: '连字'
   },
+  28: {
+    filename: '04-28-opentype-numerals.html',
+    description: '数字变体'
+  },
+  29: {
+    filename: '04-29-opentype-tabular-numerals.html',
+    description: '表列等宽数字'
+  },
+  30: {
+    filename: '04-30-opentype-kerning.html',
+    description: '字偶距'
+  },
+  31: {
+    filename: '04-31-simple-text-shadow.html',
+    description: '文本阴影'
+  },
+  32: {
+    filename: '04-32-letterpress-effect.html',
+    description: '凸版印刷'
+  },
+  33: {
+    filename: '04-33-experimenting-with-shadows.html',
+    description: '伪 3D 阴影'
+  },
+  34: {
+    filename: '04-34-shadows-creating-outline-and-3d.html',
+    description: '更逼真的伪 3D 阴影'
+  }
 };
 
 const tools = {

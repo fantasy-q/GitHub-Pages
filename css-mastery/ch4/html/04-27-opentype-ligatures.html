@@ -1,29 +1,33 @@
 <!doctype html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <title>Trying out ligatures</title>
 
   <style>
-
     @font-face {
       font-family: Vollkorn;
       src: url('fonts/vollkorn/Vollkorn-Regular.woff2') format('woff2'),
-      url('fonts/vollkorn/Vollkorn-Regular.woff') format('woff');
+        url('fonts/vollkorn/Vollkorn-Regular.woff') format('woff');
     }
-    
+
     article {
-      max-width: 70em;
       margin: 0 auto;
     }
+
     body {
       font-family: Vollkorn, Georgia, Times, 'Times New Roman', serif;
+      margin: 0 auto;
+      max-width: 70em;
     }
+
     p {
       font-size: 5em;
       line-height: 1.333;
       margin: 0;
     }
+
     /**
     * 1. Older Firefox/Gecko versions use a slightly different syntax.
     */
@@ -31,18 +35,76 @@
       font-variant-ligatures: discretionary-ligatures;
       font-variant-ligatures: discretionary-ligatures;
       -webkit-font-feature-settings: "liga", "dlig";
-         -moz-font-feature-settings: "liga", "dlig";
-         -moz-font-feature-settings: "liga=1, dlig=1"; /* 1 */
-              font-feature-settings: "liga", "dlig";
+      -moz-font-feature-settings: "liga", "dlig";
+      -moz-font-feature-settings: "liga=1, dlig=1";
+      /* 1 */
+      font-feature-settings: "liga", "dlig";
+    }
+
+    article {
+      margin-bottom: 2em;
+    }
+
+    p {
+      font-variant-ligatures: none;
+    }
+
+    footer {
+      margin-top: 1em;
+      border-top: 1px inset;
     }
 
   </style>
 </head>
+
 <body>
   <article>
     <p>A fine day for a different fjord!</p>
     <p class="ligatures-enabled">A fine day for a different fjord!</p>
   </article>
 
+  <article id="id1">
+    <p></p>
+    <p class="ligatures-enabled"></p>
+  </article>
+
+  <article id="id2">
+    <p></p>
+    <p class="ligatures-enabled"></p>
+  </article>
+
+  <footer>
+    <a href="https://en.wikipedia.org/wiki/Orthographic_ligature">Orthographic_ligature</a>
+  </footer>
+
+  <script>
+    const code_a = 'a'.charCodeAt(0);
+    const ligatures = 'bfhijklt';
+    const code_ligatures = [];
+    window.onload = () => {
+      for (let index = 0; index < ligatures.length; index++) {
+        const element = ligatures[index].charCodeAt(0);
+        code_ligatures.push(element);
+      }
+      display("id1", "f");
+      display("id2", "ff");
+
+    }
+    function display(id, f) {
+      let text = '';
+      let p = document.getElementById(id).children;
+      console.log(code_ligatures);
+      for (let index = code_a; index < code_a + 26; index++) {
+        if (code_ligatures.indexOf(index) != -1) {
+          let letter = String.fromCharCode(index);
+          text += f + letter + " ";
+        }
+      }
+      for (const iterator of p) {
+        iterator.innerHTML = text;
+      }
+    }
+  </script>
 </body>
+
 </html>

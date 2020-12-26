@@ -19,14 +19,21 @@ function init() {
 
       a.setAttribute("href", base + filename);
       a.setAttribute("target", "_blank");
-      a.innerHTML = text;
       span.setAttribute("class", "right");
       span.innerHTML = description;
-
-      li.appendChild(a);
+      a.setAttribute("id", filename.slice(3, 5))
+      li.innerHTML = text;
       li.appendChild(span);
-      ul.appendChild(li);
+      a.appendChild(li);
+      ul.appendChild(a);
     }
   }
+
 }
 
+// function insertListHeading(id, heading) {
+//   let a = document.getElementById(id);
+//   let h2 = document.createElement("h2");
+//   h2.innerHTML = heading;
+//   ul.insertBefore(h2, a)
+// }
