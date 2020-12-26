@@ -1,0 +1,57 @@
+/* multi-column.css */
+
+/*  Setting Text in Multiple Columns  */
+article {
+  max-width: 70em;
+  /** columns: 3 20em;
+    * column-count: 3;
+    * column-width: 20em;
+    */
+  columns: 20em;
+  column-gap: 1.5em;
+  margin: 0 auto;
+}
+
+/* Fallback Width*/
+article>p {
+  max-width: 36em;
+}
+
+/* Column Span */
+h1,
+.source {
+  column-span: all;
+  /* or column-span: none; to explicitly turn off. */
+}
+
+h2 {
+  /* column-span: all; */
+}
+
+/** Vertical Rhythm & Baseline Grids 
+  * headings:(line-height + margin-top + margin-bottom) = paragraphs:(line-height)
+  * p:(line-height) = body:(line-height: 1.5;) = 16*1.5 = 24px
+  * h2:(35 + 29 + 8) = 72px
+  * h3:(27 + 13 + 8) = 48px
+  */
+h2 {
+  font-size: 1.75em;
+  /* 16*1.75 = 28px */
+  line-height: 1.25;
+  /* 28*1.25 = 35px */
+  margin-top: 1.036em;
+  /* 29px */
+  margin-bottom: .2859em;
+  /* 8px */
+}
+
+h3 {
+  font-size: 1.314em;
+  /* 16*1.314 = 21px */
+  line-height: 1.29;
+  /* 1.29*21 = 27px */
+  margin-top: .619em;
+  /* 13px */
+  margin-bottom: .38em;
+  /* 8px */
+}

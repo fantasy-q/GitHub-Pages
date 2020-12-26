@@ -1,0 +1,39 @@
+/* measure-rhythm-rag.css */
+
+/** Measure 
+  * Line Length 行长，单行的长度
+  * 主体内容：每行 45~75 个字符，平均 66 个字符。
+  * 小屏幕也至少应有 40 个
+  */
+article {
+  max-width: 36em;
+  margin: 0 auto;
+}
+
+/* Text Indent & Alignment */
+p+p {
+  /* 段首缩进 */
+  text-indent: 1.25em;
+}
+
+h1 {
+  text-align: center;
+  border-bottom: 1px solid #c8bc9d;
+}
+
+p {
+  /** justufy 两端对齐，造成空白串流（river of whitespace），影响阅读
+    * IE 支持一个非标准值 newspaper，使用了更好的算法 
+    * 在 IE 测试时没效果 
+    */
+  /* text-align: justify; */
+  /* text-align: newspaper; */
+}
+
+/** Hyphenation
+  * 设置 <html lang="en">
+  * 2020/12/26：chrome 不支持，FireFox 可
+  */
+p {
+  /* hyphens: auto; */
+}

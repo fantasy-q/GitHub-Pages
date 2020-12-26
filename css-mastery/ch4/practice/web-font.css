@@ -1,0 +1,89 @@
+/* web-font.css */
+/* The @font-face Rule */
+@font-face {
+  font-family: Vollkorn;
+  font-weight: bold;
+  src: url("fonts/vollkorn/Vollkorn-Bold.woff") format('woff');
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: Vollkorn, Georgia, serif;
+  font-weight: bold;
+}
+
+/* Font File Format */
+@font-face {
+  font-family: Vollkorn;
+  src: url('fonts/vollkorn/Vollkorn-Regular.eot#?ie') format('embedded-opentype'),
+    url('fonts/vollkorn/Vollkorn-Regular.woff2') format('woff2'),
+    url('fonts/vollkorn/Vollkorn-Regular.woff') format('woff'),
+    url('fonts/vollkorn/Vollkorn-Regular.ttf') format('truetype'),
+    url('fonts/vollkorn/Vollkorn-Regular.svg') format('svg');
+}
+
+/* Font Descripts */
+@font-face {
+  font-family: AlegreyaSans;
+  src: url('fonts/alegreya/AlegreyaSans-Regular.woff2') format('woff2'),
+    url('fonts/alegreya/AlegreyaSans-Regular.woff') format('woff');
+  /* font-weight and font-style both default to "normal". */
+}
+
+@font-face {
+  font-family: Vollkorn;
+  src: url('fonts/vollkorn/Vollkorn-Medium.woff') format('woff'),
+    url('fonts/vollkorn/Vollkorn-Medium.woff') format('woff');
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: Vollkorn;
+  font-weight: bold;
+  src: url('fonts/vollkorn/Vollkorn-Bold.woff') format('woff'),
+    url('fonts/vollkorn/Vollkorn-Bold.woff') format('woff');
+}
+
+body {
+  font-family: AlegreyaSans, Helvetica, arial, sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: Vollkorn, Georgia, Times, 'Times New Roman', serif;
+  font-weight: bold;
+  /* will use the Vollkorn Bold font. */
+}
+
+h3 {
+  font-weight: 500;
+  /* will use the Vollkorn Medium font. */
+}
+
+/* Loading Fonts with JavaScript */
+body {
+  /* font-family: Helvetica, arial, sans-serif; */
+}
+
+.wf-alegreya-n4-active body {
+  font-family: Alegreya, Helvetica, arial, sans-serif;
+}
+
+.wf-alegreyasans-n4-loading p {
+  font-size: 0.905em;
+  word-spacing: -0.11em;
+  line-height: 1.72;
+  /* font-size-adjust: */
+}
+
+.wf-alegreyasans-n4-active body {
+  font-size-adjust: auto;
+}
