@@ -1,4 +1,4 @@
-/* content.css */
+/* ch5.css */
 
 body {
   font-family: 'Georgia Pro', Georgia, Times, 'Times New Roman', serif;
@@ -26,6 +26,7 @@ h1 {
 h2 {
   font-size: 1.777em;
   font-weight: 600;
+  margin: .5em;
 }
 
 h3 {
@@ -48,26 +49,34 @@ li {
   list-style-type: none;
 }
 
-li:hover {
+li:hover,
+li:focus {
   background-color: #fff;
 }
 
+
 /* Lord Vader Hates Furry Animals */
 a {
-  color: #235ea7;
+  /* color: #235ea7; */
   text-decoration: none;
 }
 
-a:link {}
+a:link {
+  color: #235ea7;
+}
 
-a:visited {}
+a:visited {
+  color: #235ea7;
+}
 
 a:hover {
   color: blueviolet;
 
 }
 
-a:focus {}
+a:focus {
+  color: red;
+}
 
 a:active {
   color: red;

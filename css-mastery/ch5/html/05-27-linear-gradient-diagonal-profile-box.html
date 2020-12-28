@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <title>Linear gradient profile page background</title>
@@ -8,16 +9,97 @@
     body {
       margin: 0;
     }
+
     .profile-box {
       height: 600px;
       background-image: -webkit-linear-gradient(45deg, #cfdfee, #4164aa);
       background-image: -moz-linear-gradient(45deg, #cfdfee, #4164aa);
       background-image: -o-linear-gradient(45deg, #cfdfee, #4164aa);
       background-image: linear-gradient(45deg, #cfdfee, #4164aa);
+      margin-bottom: 5px;
     }
+
+    .pb {
+      width: 50%;
+      height: 200px;
+      box-sizing: border-box;
+      display: inline-block;
+
+      padding: 1em;
+      color: white;
+      font-size: 4em;
+      text-align: center;
+      border-style: solid;
+      border-width: 5px 10px;
+    }
+
   </style>
 </head>
+
 <body>
   <header class="profile-box" role="banner"></header>
+  <div></div>
+  <script>
+    window.onload = init;
+    function init() {
+      let degree = 0;
+      let box;
+      const div = document.body.children[1];
+      div.appendChild(addGradient());
+      for (let index = 0; degree < 360; index++) {
+        degree = index * 45;
+        div.appendChild(addGradient(degree));
+      }
+      // 彩虹渐变
+      let ColorStop = ["Red", " Orange", " Yellow", " Green", " Cyan", " Blue", " Indigo", " Violet"];
+      box = addGradient(90, ColorStop.join());
+      box.style.setProperty("width", "100%");
+      box.innerHTML = '';
+      document.body.insertBefore(box, div);
+
+      /* 随机色标渐变 */
+      let colorstop = '';
+      let array = [];
+      // 随机数
+      for (let index = 0; index < ColorStop.length; index++) {
+        let random = 1 + Math.random() * (ColorStop.length * 100);
+        array.push(random.toFixed(0))
+      }
+      console.log(array.sort((a, b) => a - b));
+      // 合成属性字符串
+      for (let index = 0; index < ColorStop.length; index++) {
+        const element = ColorStop[index];
+        colorstop += element + " " + (array[index]) + "px,"
+      }
+      // colorstop = colorstop.slice(0, -1);
+      colorstop += 'white ' + (parseInt(array.slice(-1)) + 100) + "px";
+      console.log(colorstop);
+      // 插入 DOM
+      box = addGradient(90, colorstop);
+      box.style.setProperty("width", "100%");
+      box.innerHTML = '';
+      document.body.insertBefore(box, div);
+    }
+
+    function addGradient(degree = '', colorstop = '#cfdfee, #4164aa') {
+      const header = document.createElement("header");
+      /** 
+       * '' == 0 is true
+       * '' === 0 is false 
+       * */
+      if (degree !== '') {
+        header.innerHTML = degree;
+        degree += 'deg,';
+      } else {
+        header.innerHTML = "default";
+      }
+      header.setAttribute("class", "pb");
+      /* 这个方式设置时，不要分号 */
+      let gradient = `linear-gradient(${degree} ${colorstop})`
+      header.style.backgroundImage = gradient;
+      return header;
+    }
+  </script>
 </body>
+
 </html>

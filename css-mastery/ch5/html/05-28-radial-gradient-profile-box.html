@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <title>Radial gradient syntax example</title>
@@ -8,16 +9,35 @@
     body {
       margin: 0;
     }
+
     .profile-box {
       height: 600px;
-      background-image: -webkit-radial-gradient(circle closest-corner at 20% 30%,  #cfdfee, #2c56a1);
-      background-image: -moz-radial-gradient(circle closest-corner at 20% 30%,  #cfdfee, #2c56a1);
-      background-image: -o-radial-gradient(circle closest-corner at 20% 30%,  #cfdfee, #2c56a1);
-      background-image: radial-gradient(circle closest-corner at 20% 30%,  #cfdfee, #2c56a1);
+      background-image: -webkit-radial-gradient(circle closest-corner at 20% 30%, #cfdfee, #2c56a1);
+      background-image: -moz-radial-gradient(circle closest-corner at 20% 30%, #cfdfee, #2c56a1);
+      background-image: -o-radial-gradient(circle closest-corner at 20% 30%, #cfdfee, #2c56a1);
+      background-image: radial-gradient(circle closest-corner at 20% 30%, #cfdfee, #2c56a1);
     }
+
   </style>
 </head>
+
 <body>
   <header class="profile-box" role="banner"></header>
+  <div></div>
+  <script>
+    window.onload = init;
+    function init() {
+      const div = document.getElementsByTagName("div")[0];
+      let ColorStop = ["Red", " Orange", " Yellow", " Green", " Cyan", " Blue", " Indigo", " Violet", "white"];
+      let radial = `radial-gradient(circle closest-corner at 20% 30%, ${ColorStop.join(",")}`;
+      let header = document.createElement("header");
+      header.classList.add("pb");
+      header.style.backgroundImage = radial;
+      div.appendChild(header);
+      header.style.height = header.offsetWidth + "px";
+
+    }
+  </script>
 </body>
+
 </html>

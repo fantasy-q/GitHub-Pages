@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <title>My Profile</title>
@@ -10,17 +11,29 @@
       margin: 0;
       font-family: "Helvetica Neue", Arial, sans-serif;
     }
+
     .profile-box {
+      color: white;
       height: 600px;
       background-image: url(img/cat.jpg);
+      /* 百分比是基于容器的大小 */
       background-size: 100% auto;
       background-repeat: no-repeat;
     }
+
+    ._1 {
+      background-size: contain;
+    }
+
   </style>
 </head>
-<body>
-  <header class="profile-box" role="banner">
 
+<body>
+  <header class="profile-box" role="banner">background-size: 100% auto;
   </header>
+  <header class="profile-box _1" role="banner">background-size: contain;
+  </header>
+  <p>contain 在容器内显示完整的不裁剪图片</p>
 </body>
+
 </html>
