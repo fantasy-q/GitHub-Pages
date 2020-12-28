@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <title>Absolute positioning: in-page comments.</title>
@@ -12,6 +13,7 @@
       max-width: 35em;
       margin: 0 auto;
     }
+
     h1 {
       font-family: Avenir, Franklin Gothic, sans-serif;
     }
@@ -26,15 +28,18 @@
       right: -8em;
       margin-left: -7em;
     }
+
     figure img {
       width: 100%;
       display: block;
       margin-bottom: .5em;
     }
+
     figcaption {
       font-style: italic;
       font-size: .875em;
     }
+
     .comment {
       position: absolute;
       width: 7em;
@@ -46,6 +51,7 @@
       background-color: #dcf0ff;
       font-style: italic;
     }
+
     .comment:after {
       position: absolute;
       content: '';
@@ -59,23 +65,62 @@
       right: -1em;
       top: .5em;
     }
+
+    .comment-r {
+      /* 1. 调整位置 */
+      position: absolute;
+      width: 7em;
+      right: 8.5em;
+      margin-top: -1.5em;
+      /* 2. 背景 */
+      font-size: .875em;
+      padding: .5em;
+      border-radius: .25em;
+      background-color: #dcf0ff;
+      font-style: italic;
+    }
+
+    .comment-r:before {
+      position: absolute;
+      content: '';
+      display: block;
+      width: 0;
+      height: 0;
+      /* 边框 */
+      border: .5em solid #dcf0ff;
+      border-top-color: transparent;
+      border-left-color: transparent;
+      left: -1em;
+      bottom: 0.5em;
+    }
+
   </style>
 </head>
+
 <body>
+  <aside class="comment-r" id="comment-1">
+    Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+  </aside>
   <h1>A fake article about spaceships</h1>
 
-  <p>This is a fake article about spaceships. Remember when you did presentations in middle school, and you told the class about what your assignment was about, then read aloud from the paper you had written, including the title?
-  ”My assignment is about spaceships. Spaceships. Spaceships are very large, and fly in space...”.</p>
+
+  <p>This is a fake article about spaceships. Remember when you did presentations in middle school, and you told the
+    class about what your assignment was about, then read aloud from the paper you had written, including the title?
+    ”My assignment is about spaceships. Spaceships. Spaceships are very large, and fly in space...”.</p>
   <aside class="comment" id="comment-1">
     I’ve never done this. Is that really true?
   </aside>
+  <aside class="comment-r" id="comment-1">
+    绝对定位适合创建覆盖在其他内容之上的组件
+  </aside>
   <p>You may think that spaceships are fake, like this article, but they’re not. There are actual spaceships,
-    flying in space right now, probably. For example, there’s the International Space Station, which is 
+    flying in space right now, probably. For example, there’s the International Space Station, which is
     a spaceship of sorts. Well, actually it’s a space station, which is even cooler!</p>
-    <figure>
-      <img src="images/spaceship.jpg" alt="The Dragon spaceship in orbit around Earth.">
-      <figcaption>The ”Dragon” spaceship, created by SpaceX. Image from <a href="https://www.flickr.com/photos/spacexphotos/16787988882/">Flickr.com</a></figcaption>
-    </figure>
+  <figure>
+    <img src="images/spaceship.jpg" alt="The Dragon spaceship in orbit around Earth.">
+    <figcaption>The ”Dragon” spaceship, created by SpaceX. Image from <a
+        href="https://www.flickr.com/photos/spacexphotos/16787988882/">Flickr.com</a></figcaption>
+  </figure>
   <p>There’s various government organizations and companies that are building spaceships. One of them is
     SpaceX. An image of one of their spaceships appears on this very page.</p>
   <aside class="comment" id="comment-1">
@@ -83,7 +128,10 @@
   </aside>
   <p>I can't be bothered to write any more about spaceships so the rest of the text will just be
     nonsense. This isn’t a school assignment after all.</p>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi saepe harum, excepturi dolorum voluptatem hic amet nemo. Incidunt tenetur dignissimos laborum molestiae reiciendis ipsum quas temporibus nisi dolor, ea libero!</p>
-    <p>A assumenda, et eius odit, rerum delectus placeat dolores eveniet quis. Iure neque deserunt mollitia impedit illo corporis odio quod, velit ducimus!</p>
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi saepe harum, excepturi dolorum voluptatem hic amet
+    nemo. Incidunt tenetur dignissimos laborum molestiae reiciendis ipsum quas temporibus nisi dolor, ea libero!</p>
+  <p>A assumenda, et eius odit, rerum delectus placeat dolores eveniet quis. Iure neque deserunt mollitia impedit illo
+    corporis odio quod, velit ducimus!</p>
 </body>
+
 </html>

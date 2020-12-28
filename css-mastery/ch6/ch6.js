@@ -25,6 +25,7 @@ function createListItem(element) {
   li.innerHTML = name.split('.')[0];
   // 设置 <span>
   span.classList.add("right");
+  span.innerHTML = element['title']
   li.appendChild(span);
   a.appendChild(li);
   return a;
