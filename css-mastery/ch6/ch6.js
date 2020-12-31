@@ -7,9 +7,13 @@ function init() {
   h1.parentNode.appendChild(ul);
   // 插入到 <ul>
   htmls.forEach(element => {
-    let item = createListItem(element);
-    ul.appendChild(item);
+    let a = createListItem(element);
+    // 插入标题
+    let page = a.innerHTML.slice(7, 9);
+    ul.appendChild(insertTitle(page));
+    ul.appendChild(a);
   });
+  insertTitle(01);
 }
 
 function createListItem(element) {
@@ -41,4 +45,23 @@ function createTitle() {
   article.appendChild(h1);
   body.appendChild(article);
   return h1;
+}
+
+// insert title 
+function insertTitle(page) {
+  if (page != 'XX') {
+    page = Number.parseInt(page);
+  }
+  let h2 = document.createElement("h2");
+  for (const key in object = titles) {
+    if (Object.hasOwnProperty.call(object, key)) {
+      if (page == key) {
+        const element = object[key];
+        h2.innerHTML = element;
+        // 防止重复插入
+        delete object[key];
+      }
+    }
+  }
+  return h2;
 }

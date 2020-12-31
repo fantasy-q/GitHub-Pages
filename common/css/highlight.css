@@ -1,0 +1,26 @@
+.variable,
+.selector {
+  color: rgb(122, 62, 157);
+}
+
+.string {
+  color: rgb(68, 140, 132);
+}
+
+.property,
+.number {
+  color: rgb(156, 93, 39);
+}
+
+.unit,
+.tag {
+  color: rgb(75, 105, 207);
+}
+
+.attribute {
+  color: rgb(129, 144, 160);
+}
+
+.sign {
+  color: rgb(145, 179, 227);
+}
