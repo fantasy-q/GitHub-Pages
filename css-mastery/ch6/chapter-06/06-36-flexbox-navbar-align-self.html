@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <title>Navbar using flexbox, with align-self and margin auto</title>
@@ -19,28 +20,31 @@
       -webkit-align-items: flex-end;
       -ms-flex-align: end;
       -webkit-box-align: end;
-         -moz-box-align: end;
-              align-items: flex-end;
+      -moz-box-align: end;
+      align-items: flex-end;
       min-height: 100px;
       font-family: 'Avenir Next', Avenir, Corbel, 'Franklin Gothic', 'Century Gothic', CenturyGothic, AppleGothic, sans-serif;
       list-style: none;
       padding: 0;
       background-color: #486a8e;
     }
+
     .navbar li {
       text-transform: uppercase;
       text-align: center;
       -moz-box-sizing: border-box;
-           box-sizing: border-box;
+      box-sizing: border-box;
       background-color: #12459e;
       outline: 1px solid #fff;
     }
+
     .navbar li:first-child {
       -webkit-align-self: flex-start;
       -ms-flex-item-align: start;
       align-self: flex-start;
       margin-right: auto;
     }
+
     .navbar li a {
       display: block;
       text-decoration: none;
@@ -48,8 +52,17 @@
       padding: 1em;
       color: #fff;
     }
+
+  </style>
+  <style>
+    .nav li:last-child {
+      align-self: center;
+      /* margin-right: auto; */
+    }
+
   </style>
 </head>
+
 <body>
   <nav class="navbar">
     <ul>
@@ -59,5 +72,19 @@
       <li><a href="/stars">Stars</a></li>
     </ul>
   </nav>
+  <pre>
+      .navbar li:first-child {
+        align-self: flex-start;
+      }
+    </pre>
+  <nav class="navbar nav">
+    <ul>
+      <li><a href="/home">Home</a></li>
+      <li><a href="/spaceships">Spaceships</a></li>
+      <li><a href="/planets">Planets</a></li>
+      <li><a href="/stars">Stars</a></li>
+    </ul>
+  </nav>
 </body>
+
 </html>
