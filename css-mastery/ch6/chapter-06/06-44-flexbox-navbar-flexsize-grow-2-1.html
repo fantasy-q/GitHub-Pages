@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <title>Navbar using flexbox, no width</title>
@@ -9,6 +10,7 @@
     nav {
       display: block;
     }
+
     .navbar ul {
       display: -webkit-flex;
       display: -ms-flexbox;
@@ -20,19 +22,21 @@
       padding: 0;
       background-color: #486a8e;
     }
+
     .navbar li {
       text-transform: uppercase;
       text-align: center;
       -moz-box-sizing: border-box;
-           box-sizing: border-box;
+      box-sizing: border-box;
       background-color: #12459e;
       outline: 1px solid #fff;
       -webkit-box-flex: 1;
       -webkit-flex: 1 0 0%;
-         -moz-box-flex: 1;
-          -ms-flex: 1 0 0%;
-              flex: 1 0 0%;
+      -moz-box-flex: 1;
+      -ms-flex: 1 0 0%;
+      flex: 1 0 0%;
     }
+
     .navbar li a {
       display: block;
       text-decoration: none;
@@ -40,13 +44,15 @@
       padding: 1em;
       color: #fff;
     }
+
     .navbar li:first-child {
       -webkit-box-flex: 2;
       -webkit-flex-grow: 2;
-         -moz-box-flex: 2;
-          -ms-flex-positive: 2;
-              flex-grow: 2;
+      -moz-box-flex: 2;
+      -ms-flex-positive: 2;
+      flex-grow: 2;
     }
+
     .navbar li a {
       display: block;
       text-decoration: none;
@@ -54,8 +60,72 @@
       padding: 1em;
       color: #fff;
     }
+
+  </style>
+  <style>
+    .nav {
+      background-color: #486a8e;
+      text-align: center;
+      color: white;
+      padding: .5em 0;
+      box-sizing: border-box;
+      margin: .5em auto;
+    }
+
+    .nav ul {
+      display: flex;
+
+      list-style: none;
+      padding: 0;
+      margin: 0.5em 0;
+      box-sizing: border-box;
+      background-color: #12459e;
+    }
+
+    .nav li {
+      text-align: center;
+      box-sizing: border-box;
+      background-color: #12459e;
+      outline: 1px solid #fff;
+    }
+
+    .nav li a {
+      display: block;
+      text-decoration: none;
+      padding: .5em;
+      color: #fff;
+    }
+
+    .grow {
+      width: 1000px;
+    }
+
+    .fg1 li {
+      /* flex-basis: auto; */
+      flex-grow: 1;
+    }
+
+    .pure {
+      width: 1000px;
+
+    }
+
+    .pure li {
+      flex: 1 0 0%;
+    }
+
+    .shrink {
+      width: 1000px;
+    }
+
+    div {
+      margin: auto;
+      text-align: center;
+    }
+
   </style>
 </head>
+
 <body>
   <nav class="navbar">
     <ul>
@@ -65,5 +135,99 @@
       <li><a href="/stars">Stars</a></li>
     </ul>
   </nav>
+  <div>
+    <h1>grow</h1>
+    <nav class="nav grow">
+      <ul>
+        <li>Short<a></a></li>
+        <li>Looooooooooooooooooooooooooooooooooong<a></a></li>
+      </ul>
+      flex-basis: auto; /* default */
+    </nav>
+    <nav class="nav grow">
+      <ul>
+        <li style="width: 200px;"><a></a>width: 200px;</li>
+        <li style="width: 400px;"><a></a>width: 400px;</li>
+      </ul>
+    </nav>
+    <nav class="nav grow fg1">
+      <ul>
+        <li style="width: 200px;"><a></a>width: 200px;</li>
+        <li style="width: 400px;"><a></a>width: 400px;</li>
+      </ul>
+      flex-grow: 1;
+    </nav>
+    <nav class="nav grow">
+      <ul>
+        <li style="flex-grow:3;width: 200px;"><a></a>flex-grow: 3;</li>
+        <li style="flex-grow:1;width: 400px;"><a></a>flex-grow: 1;</li>
+      </ul>
+    </nav>
+    <nav class="nav pure">
+      <ul>
+        <li><a></a></li>
+        <li><a></a></li>
+      </ul>
+      flex: 1 0 0%;
+    </nav>
+    <nav class="nav pure">
+      <ul>
+        <li style="flex-grow: 4;"><a></a>flex-grow: 4;</li>
+        <li><a></a></li>
+      </ul>
+      flex: 1 0 0%;
+    </nav>
+  </div>
+  <div>
+    <h1>shrink</h1>
+    <nav class="nav shrink">
+      <ul>
+        <li style="flex: 1 1 800px"><a></a>flex: 1 1 800px;</li>
+        <li style="flex: 1 1 500px"><a></a>flex: 1 1 500px;</li>
+      </ul>
+    </nav>
+    <nav class="nav shrink">
+      <ul>
+        <li style="flex: 1 2 1200px"><a></a>flex: 1 2 1200px;</li>
+        <li style="flex: 1 1 800px"><a></a>flex: 1 1 800px;</li>
+      </ul>
+    </nav>
+
+  </div>
+
+  <script>
+    window.onload = () => {
+      showWidth();
+    }
+    window.onresize = showWidth;
+    function showWidth() {
+      let nav = document.getElementsByClassName("nav");
+      for (const iterator of nav) {
+        let ul = iterator.children[0];
+        for (const li of ul.children) {
+          let a = li.children[0];
+          a.innerHTML = li.offsetWidth;
+        }
+      }
+    }
+    // function createItem(text) {
+    //   let li = document.createElement("li");
+    //   let a = document.createElement("a");
+    //   li.appendChild(a);
+    //   return li;
+    // }
+    // function createList(item = 4) {
+    //   let nav = document.createElement("nav");
+    //   nav.classList.add("nav");
+    //   let ul = document.createElement("ul");
+    //   for (let index = 0; index < item; index++) {
+    //     ul.appendChild(createItem());
+    //   }
+    //   nav.appendChild(ul);
+    //   document.body.appendChild(nav);
+    //   return ul;
+    // }
+  </script>
 </body>
+
 </html>
