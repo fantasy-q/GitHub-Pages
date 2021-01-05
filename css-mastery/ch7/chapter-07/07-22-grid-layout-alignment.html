@@ -1,59 +1,93 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <title>Grid layout with grid track alignment</title>
   <!-- the base styles and "housekeeping" styles are in here: -->
   <link rel="stylesheet" href="css/grid-base.css">
-<!-- the HTML5 shiv, to help older browsers understand styling
+  <!-- the HTML5 shiv, to help older browsers understand styling
  on newer HTML5 elements: -->
- <script src="js/html5shiv.min.js"></script>
+  <script src="js/html5shiv.min.js"></script>
 
- <style>
-  body {
-    padding: 2em;
-  }
-  .grid {
-    display: -webkit-grid;
-    display: grid;
-    height: 100px;
-    margin-bottom: 4em;
-    outline: 2px dashed #666;
-    width: 500px;
-    -webkit-grid-template-rows: 100px;
-            grid-template-rows: 100px;
-    -webkit-grid-template-columns: repeat(8, 50px);
-            grid-template-columns: repeat(8, 50px);
-    justify-content: start; /* implied, default */
-  }
-  .grid-end {
-    -webkit-justify-content: end;
-            justify-content: end;
-  }
-  .grid-center {
-    -webkit-justify-content: center;
-            justify-content: center;
-  }
-  .grid-space-between {
-    -webkit-justify-content: space-between;
-            justify-content: space-between;
-  }
-  .grid-space-around {
-    -webkit-justify-content: space-around;
-            justify-content: space-around;
-  }
-  .grid-space-evenly {
-    -webkit-justify-content: space-evenly;
-            justify-content: space-evenly;
-  }
-  .grid > * {
-    outline: 1px solid #fff;
-    background-color: #ccc;
-  }
+  <style>
+    body {
+      padding: 2em;
+    }
 
-</style>
+    .grid {
+      display: -webkit-grid;
+      display: grid;
+      height: 100px;
+      margin-bottom: 4em;
+      outline: 2px dashed #666;
+      width: 500px;
+      -webkit-grid-template-rows: 100px;
+      grid-template-rows: 100px;
+      -webkit-grid-template-columns: repeat(8, 50px);
+      grid-template-columns: repeat(8, 50px);
+      justify-content: start;
+      /* implied, default */
+    }
+
+    .grid-end {
+      -webkit-justify-content: end;
+      justify-content: end;
+    }
+
+    .grid-center {
+      -webkit-justify-content: center;
+      justify-content: center;
+    }
+
+    .grid-space-between {
+      -webkit-justify-content: space-between;
+      justify-content: space-between;
+    }
+
+    .grid-space-around {
+      -webkit-justify-content: space-around;
+      justify-content: space-around;
+    }
+
+    .grid-space-evenly {
+      -webkit-justify-content: space-evenly;
+      justify-content: space-evenly;
+    }
+
+    .grid>* {
+      outline: 1px solid #fff;
+      background-color: #ccc;
+    }
+
+  </style>
+  <style>
+    .grid {
+      margin-bottom: 2.5em;
+    }
+
+    .description {
+      font-family: monospace;
+      font-size: 1.2em;
+      margin-bottom: 2em;
+    }
+
+    p {
+      font-family: monospace;
+      font-size: 1.2em;
+    }
+
+  </style>
 </head>
+
 <body>
+  <div class="description">
+    grid-template-rows: 100px;<br>
+    grid-template-columns: repeat(8, 50px);<br>
+    row 是 height，col 是 width。
+  </div>
+
+  <p>justify-content: start; /* default */</p>
   <div class="grid">
     <div></div>
     <div></div>
@@ -65,6 +99,7 @@
     <div></div>
   </div>
 
+  <p>justify-content: end;</p>
   <div class="grid grid-end">
     <div></div>
     <div></div>
@@ -75,6 +110,8 @@
     <div></div>
     <div></div>
   </div>
+
+  <p>justify-content: center;</p>
   <div class="grid grid-center">
     <div></div>
     <div></div>
@@ -85,6 +122,8 @@
     <div></div>
     <div></div>
   </div>
+
+  <p>justify-content: space-between;</p>
   <div class="grid grid-space-between">
     <div></div>
     <div></div>
@@ -95,6 +134,8 @@
     <div></div>
     <div></div>
   </div>
+
+  <p>justify-content: space-around;</p>
   <div class="grid grid-space-around">
     <div></div>
     <div></div>
@@ -106,6 +147,7 @@
     <div></div>
   </div>
 
+  <p>justify-content: space-evenly;</p>
   <div class="grid grid-space-evenly">
     <div></div>
     <div></div>
@@ -117,4 +159,5 @@
     <div></div>
   </div>
 </body>
+
 </html>
