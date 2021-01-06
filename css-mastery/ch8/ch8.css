@@ -1,87 +1,129 @@
 /* ch8.css */
 
 body {
-  font-family: 'Georgia Pro', Georgia, Times, 'Times New Roman', serif;
+  padding: 0;
+  margin: 0;
+  font-family: 'Noto Sans SC', sans-serif;
+  font-weight: 700;
   line-height: 1.5;
+  background-color: #ccc;
+  /* background-color: #eee; */
+}
+
+header,
+main {
+  max-width: 45em;
+  min-width: 35em;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+header {
+  background-color: #8E3339;
+}
+
+main {
+  padding: 1em;
   background-color: #eee;
+  /* background-color: #ddd; */
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-family: 'Avenir Next', 'Segoe UI', arial, sans-serif;
-  font-weight: 500;
-}
-
+/* Heading */
 h1 {
-  font-size: 2.369em;
+  /* font-size: 2.369em; */
+  font-size: 1.953em;
   font-weight: 800;
-  text-align: center;
-  border-bottom: 1px solid #c8bc9d;
 }
 
 h2 {
-  font-size: 1.777em;
+  /* font-size: 1.777em; */
+  font-size: 1.563em;
   font-weight: 600;
   margin: .5em;
 }
 
 h3 {
-  font-size: 1.333em;
+  /* font-size: 1.333em; */
+  font-size: 1.25em;
 }
 
-article {
-  max-width: 48em;
-  min-width: 36em;
-  margin: 0 auto;
+header>h1 {
+  color: white;
+  padding: 0.5em 0.2em;
+  margin: 0;
+  text-align: center;
+  text-shadow: -0.1em 0.1em 0 rgba(0, 0, 0, 0.3);
+  font-family: 'Goldman', cursive;
 }
 
+/* List */
 ul {
   padding: 3px;
+  margin: 0;
 }
 
 li {
   margin: 2px;
   padding: 8px;
   list-style-type: none;
+  font-size: 1em;
 }
 
-li:hover,
-li:focus {
+li:hover {
   background-color: #fff;
+  color: #d1333e;
+  outline: 2px solid #d1333e;
 }
 
+li:active {
+  color: red;
+}
+
+ul h2 {
+  font-family: 'Georgia Pro', Georgia, Times, 'Times New Roman', serif;
+  font-weight: 700;
+}
+
+/* Link */
 /* Lord Vader Hates Furry Animals */
 a {
   /* color: #235ea7; */
   text-decoration: none;
+  color: #8E3339;
+
 }
 
 a:link {
-  color: #235ea7;
+  /* color: #235ea7; */
 }
 
 a:visited {
-  color: #235ea7;
+  /* color: #235ea7; */
 }
 
-a:hover {
-  color: blueviolet;
-
-}
+a:hover {}
 
 a:focus {
   color: red;
+  outline: 0;
 }
 
-a:active {
-  color: red;
+a:focus>li {
+  outline: 2px solid red;
+  background-color: #fff;
 }
 
-/* class */
+a:active {}
+
+/* Class */
 .right {
   float: right;
+}
+
+.left {
+  float: left;
+}
+
+.overflow {
+  overflow: auto;
 }

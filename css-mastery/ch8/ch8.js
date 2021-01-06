@@ -2,57 +2,62 @@
 window.onload = init;
 
 function init() {
-  let h1 = createTitle();
-  let ul = document.createElement("ul");
-  h1.parentNode.appendChild(ul);
+  const main = createBody();
+  const ul = document.createElement("ul");
   // 插入到 <ul>
   htmls.forEach(element => {
-    let a = createListItem(element);
+    const li = createListItem(element);
+    const link = li.parentNode;
     // 插入标题
-    let page = a.innerHTML.slice(7, 9);
-    ul.appendChild(insertTitle(page));
-    ul.appendChild(a);
+    const page = li.firstChild.innerHTML.slice(3, 5);
+    ul.appendChild(insertTitleBefore(page));
+    ul.appendChild(link);
   });
-  insertTitle(01);
+  main.appendChild(ul);
 }
 
 function createListItem(element) {
-  let a = document.createElement("a");
-  let li = document.createElement("li");
-  let span = document.createElement("span");
-  let name = element['name'];
-  let path = base + name;
+  const a = document.createElement("a");
+  const li = document.createElement("li");
+  const spanCN = document.createElement("span");
+  const spanEN = document.createElement("span");
+  const name = element['name'];
+  const path = base + name;
+  li.classList.add("overflow")
   // 设置 <a>
   a.href = path;
   a.target = "_blank";
-  // 设置 <li>
-  li.innerHTML = name.split('.')[0];
-  // 设置 <span>
-  span.classList.add("right");
-  span.innerHTML = element['title']
-  li.appendChild(span);
+  // 设置中文 <span>
+  spanEN.classList.add("left");
+  spanEN.innerHTML = name.split('.')[0];
+  spanCN.classList.add("right");
+  spanCN.innerHTML = element['title']
+  li.appendChild(spanEN);
+  li.appendChild(spanCN);
   a.appendChild(li);
-  return a;
+  return li;
 }
 
 // Create <title> <h1>
-function createTitle() {
+function createBody() {
+  const header = document.createElement("header");
   document.getElementsByTagName("title")[0].innerHTML = title;
-  let body = document.body;
-  let article = document.createElement("article");
-  let h1 = document.createElement("h1");
+  const body = document.body;
+  const main = document.createElement("main");
+  const h1 = document.createElement("h1");
   h1.innerHTML = title.split(' ').slice(2).join(' ');
-  article.appendChild(h1);
-  body.appendChild(article);
-  return h1;
+  header.appendChild(h1);
+  body.appendChild(header);
+  body.appendChild(main);
+  return main;
 }
 
 // insert title 
-function insertTitle(page) {
+function insertTitleBefore(page) {
   if (page != 'XX') {
     page = Number.parseInt(page);
   }
-  let h2 = document.createElement("h2");
+  const h2 = document.createElement("h2");
   for (const key in object = titles) {
     if (Object.hasOwnProperty.call(object, key)) {
       if (page == key) {
