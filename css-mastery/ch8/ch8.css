@@ -47,15 +47,6 @@ h3 {
   font-size: 1.25em;
 }
 
-header>h1 {
-  color: white;
-  padding: 0.5em 0.2em;
-  margin: 0;
-  text-align: center;
-  text-shadow: -0.1em 0.1em 0 rgba(0, 0, 0, 0.3);
-  font-family: 'Goldman', cursive;
-}
-
 /* List */
 ul {
   padding: 3px;
@@ -77,11 +68,6 @@ li:hover {
 
 li:active {
   color: red;
-}
-
-ul h2 {
-  font-family: 'Georgia Pro', Georgia, Times, 'Times New Roman', serif;
-  font-weight: 700;
 }
 
 /* Link */
@@ -115,6 +101,22 @@ a:focus>li {
 
 a:active {}
 
+/*  */
+header>h1 {
+  color: white;
+  padding: 0.5em 0.2em;
+  margin: 0;
+  text-align: center;
+  text-shadow: -0.1em 0.1em 0 rgba(0, 0, 0, 0.3);
+  font-family: 'Goldman', cursive;
+}
+
+ul>h2 {
+  font-family: 'Source Serif Pro', serif;
+  font-weight: 700;
+  font-style: italic;
+}
+
 /* Class */
 .right {
   float: right;
@@ -126,4 +128,12 @@ a:active {}
 
 .overflow {
   overflow: auto;
+}
+
+/* Media Type: screen  */
+@media only screen and (max-width: 46em) {
+  body {
+    transition: background-color 1s;
+    background-color: #eee;
+  }
 }

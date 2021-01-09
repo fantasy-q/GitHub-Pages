@@ -5,7 +5,7 @@ function init() {
   const main = createBody();
   const ul = document.createElement("ul");
   // 插入到 <ul>
-  htmls.forEach(element => {
+  htmls.forEach((element) => {
     const li = createListItem(element);
     const link = li.parentNode;
     // 插入标题
@@ -14,6 +14,7 @@ function init() {
     ul.appendChild(link);
   });
   main.appendChild(ul);
+  console.log(window.innerWidth);
 }
 
 function createListItem(element) {
