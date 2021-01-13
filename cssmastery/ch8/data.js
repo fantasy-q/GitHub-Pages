@@ -7,10 +7,10 @@ const htmls = [
   { title: '版式：最大宽度', name: '08-10-max-width-typography.html' },
   { title: '多列文本', name: '08-11-multi-column-text.html' },
   { title: '响应式：Flexbox Widget', name: '08-13-responsive-flexbox-widget.html' },
-  { title: '响应式', name: '08-17-responsive-news-grid.html' },
-  { title: '响应式', name: '08-18-background-image-media-query.html' },
-  { title: '响应式', name: '08-20-responsive-news-srcset-x.html' },
-  { title: '响应式', name: '08-XX-responsive-news-picture.html' },
+  { title: '响应式：网格模板', name: '08-17-responsive-news-grid.html' },
+  { title: '媒体查询：背景图片', name: '08-18-background-image-media-query.html' },
+  { title: '响应式：srcset', name: '08-20-responsive-news-srcset-x.html' },
+  { title: '响应式：<picture>', name: '08-XX-responsive-news-picture.html' },
   { title: '响应式', name: '08-XX-responsive-news-srcset.html' }
 ]
 
