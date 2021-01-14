@@ -1,5 +1,6 @@
 /* ch9.js */
-loadScript('./data.js');
+// 相对于 index.html 的位置
+loadScript('./js/data.js');
 loadStyles('./ch9.css');
 window.onload = init;
 
@@ -16,7 +17,7 @@ function init() {
     ul.appendChild(link);
   });
   main.appendChild(ul);
-  console.log(window.innerWidth);
+  console.log(document.head);
 }
 
 function createListItem(element) {
@@ -61,7 +62,7 @@ function insertTitleBefore(page) {
     page = Number.parseInt(page);
   }
   const h2 = document.createElement("h2");
-  for (const key in object = data.titles) {
+  for (const key in object = data.headings) {
     if (Object.hasOwnProperty.call(object, key)) {
       if (page == key) {
         const element = object[key];
