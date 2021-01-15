@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Simple transform</title>
+  <link rel="stylesheet" href="./practice.css">
+  <style>
+    .pos1 {
+      top: 140px;
+      left: 160px;
+    }
+
+    .pos2 {
+      top: 560px;
+      left: 160px;
+      transform-origin: 20px 20px;
+    }
+
+  </style>
+</head>
+
+<body>
+  <div class="container a"></div>
+  <div class="container b"></div>
+
+  <script>
+    window.onload = () => {
+      const divs = document.querySelectorAll('.container');
+      console.log(divs);
+      for (let index = 0; index < 5; index++) {
+        const div = document.createElement('div');
+        div.classList.add('box');
+        div.classList.add('pos1');
+        div.style.transform = `translate(${100 * index}%)`;
+        divs[0].appendChild(div);
+      }
+      for (let index = 0; index < 5; index++) {
+        const div = document.createElement('div');
+        div.classList.add('box');
+        div.classList.add('pos2');
+        div.style.transform = `translate(${50 * index}%, ${50 * index}%)`;
+        divs[1].appendChild(div);
+      }
+    }
+  </script>
+</body>
+
+</html>

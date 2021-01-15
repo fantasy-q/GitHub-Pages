@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Rotate</title>
+  <link rel="stylesheet" href="./practice.css">
+  <style>
+    .pos1 {
+      top: 140px;
+      left: 160px;
+    }
+
+    .pos2 {
+      top: 560px;
+      left: 160px;
+      transform-origin: 0px 0px;
+    }
+
+  </style>
+</head>
+
+<body>
+  <div class="container a">
+    <p>顺时针旋转，0° ~ 45°，默认原点是盒子中心</p>
+  </div>
+  <div class="container b">
+    <p>顺时针旋转，0° ~ 45°，设置原点为左上角</p>
+    <p class="mono white">transform-origin: 0px 0px;</p>
+  </div>
+
+  <script>
+    window.onload = () => {
+      const divs = document.querySelectorAll('.container');
+      console.log(divs);
+      for (let index = 0; index < 10; index++) {
+        const div = document.createElement('div');
+        div.classList.add('box');
+        div.classList.add('pos1');
+        div.style.transform = `rotate(${5 * index}deg)`;
+        divs[0].appendChild(div);
+      }
+      for (let index = 0; index < 10; index++) {
+        const div = document.createElement('div');
+        div.classList.add('box');
+        div.classList.add('pos2');
+        div.style.transform = `rotate(${5 * index}deg)`;
+        divs[1].appendChild(div);
+      }
+    }
+  </script>
+</body>
+
+</html>

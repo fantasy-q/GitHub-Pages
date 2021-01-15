@@ -10,36 +10,37 @@ function init() {
   // 插入到 <ul>
   data.htmls.forEach((element) => {
     const li = createListItem(element);
-    // 插入标题
+    // 遍历页码
     const page = li.firstChild.innerText.slice(3, 5);
-    const insertH2 = insertTitleBefore(page);
-    if (insertH2.hasChildNodes()) {
-      ul.appendChild(insertH2);
+    const insertNode = insertBefore(page);
+    if (insertNode) {
+      ul.appendChild(insertNode);
     }
     ul.appendChild(li);
   });
   main.appendChild(ul);
 }
-
+// create <li>
 function createListItem(element) {
   const li = document.createElement("li");
-  const a = document.createElement("a");
   const spanCN = document.createElement("span");
-  const name = element['name'];
-  const path = base + name;
-  // 
-  li.setAttribute('data-page',3)
-  console.log(li.dataset);
-  // 设置 <a>
-  a.href = path;
-  a.target = "_blank";
-  a.innerText = name.split('.')[0];
+  const a = createA(element);
   // 设置中文 <span>
   spanCN.classList.add("right");
   spanCN.innerText = element['title']
   a.appendChild(spanCN);
   li.appendChild(a);
   return li;
+}
+
+function createA(element) {
+  let name = element['name'];
+  let path = base + name;
+  const a = document.createElement("a");
+  a.href = path;
+  a.target = "_blank";
+  a.innerText = name.split('.')[0];
+  return a;
 }
 
 // Create <title> <h1>
@@ -56,41 +57,36 @@ function createBody() {
   return main;
 }
 
-// insert title 
-function insertTitleBefore(page) {
+function insertBefore(page) {
   if (page != 'XX') {
     page = Number.parseInt(page);
   }
-  const h2 = document.createElement("h2");
+  let node = '';
+  // 标题
   for (const key in object = data.headings) {
     if (Object.hasOwnProperty.call(object, key)) {
       if (page == key) {
-        const element = object[key];
-        h2.innerText = element;
+        const heading = object[key];
+        node = document.createElement('h2');
+        node.innerText = heading;
         // 防止重复插入
         delete object[key];
       }
     }
   }
-  return h2;
-}
-// insert item 
-function insertItemBefore(page) {
-  if (page != 'XX') {
-    page = Number.parseInt(page);
-  }
-  const h2 = document.createElement("h2");
-  for (const key in object = data.headings) {
+  // 自建文件
+  for (const key in object = data.practices) {
     if (Object.hasOwnProperty.call(object, key)) {
       if (page == key) {
         const element = object[key];
-        h2.innerText = element;
-        // 防止重复插入
+        node = createListItem(element);
+        // 将 <a> 设置为 overflow
+        node.firstChild.classList.add('overflow');
         delete object[key];
       }
     }
   }
-  return h2;
+  return node;
 }
 
 // Loading

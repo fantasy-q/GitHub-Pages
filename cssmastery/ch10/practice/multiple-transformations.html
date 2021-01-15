@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Using transform-origin to rotate text</title>
+
+  <style>
+    body {
+      font-family: Baskerville, Times, Times New Roman, serif;
+      font-size: 1.25em;
+      padding: 3em;
+    }
+
+    h1 {
+      font-weight: 400;
+    }
+
+    .rules {
+      /* rulecount 是随便起的，只是一个标识符 */
+      counter-reset: rulecount 2;
+      list-style: none;
+    }
+
+    .rules li {
+      counter-increment: rulecount;
+      position: relative;
+    }
+
+    .rules li:before {
+      content: '§ 'counter(rulecount);
+      position: absolute;
+      transform-origin: 100% 100%;
+      transform: translate(-100%, -100%) rotate(-90deg);
+    }
+
+    .box {
+      /* rulecount 是随便起的，只是一个标识符 */
+      counter-reset: rulecount 1;
+      list-style: none;
+    }
+
+    .box li {
+      position: relative;
+      display: block;
+      width: 500px;
+      height: 2em;
+      outline: 2px solid #ccc;
+      margin: 2em 0;
+    }
+
+    .box li:before {
+      content: '§ 'counter(rulecount);
+      border: 2px solid;
+      position: absolute;
+
+      /* transform-origin: 100% 100%; */
+      /* transform: translate(-100%, -100%) rotate(-90deg); */
+    }
+
+    .box li:nth-child(1)::before {
+      transform-origin: 100% 100%;
+    }
+
+    .box li:nth-child(2)::before {
+      transform-origin: 100% 100%;
+      transform: translate(-100%, -100%);
+    }
+
+    .box li:nth-child(3)::before {
+      transform-origin: 100% 100%;
+      transform: translate(-100%, -100%) rotate(-90deg);
+    }
+
+    .box p {
+      padding-left: 32px;
+      font-family: monospace;
+      font-size: 1em;
+      margin: 0;
+    }
+
+  </style>
+</head>
+
+<body>
+  <h1>Fight Club rules</h1>
+  <ol class="rules" start="3">
+    <li>If someone says ”stop”, goes limp or taps out, the fight is over.</li>
+
+    <li>Only two guys to a fight.</li>
+
+    <li>One fight at a time.</li>
+
+    <li>No shirts, no shoes.</li>
+
+    <li>Fights will go on as long as they have to.</li>
+
+    <li>If this is your first night at FIGHT CLUB, you HAVE to fight.</li>
+  </ol>
+  <ol class="box" start="4">
+    <li>
+      <p>transform-origin: 100% 100%;</p>
+    </li>
+    <li>
+      <p>transform-origin: 100% 100%;</p>
+      <p>transform: translate(-100%, -100%);</p>
+    </li>
+    <li>
+      <p>transform-origin: 100% 100%;</p>
+      <p>transform: translate(-100%, -100%) rotate(-90deg);</p>
+    </li>
+  </ol>
+  <p>变换只能重写不能迭代，即：</p>
+  <p>若想增加新变换，不能仅在原有基础上添加，须声明全套变换。</p>
+
+</body>
+
+</html>
