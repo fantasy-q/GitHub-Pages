@@ -1,5 +1,4 @@
 /* ch10.css */
-
 body {
   padding: 0;
   margin: 0;
@@ -23,7 +22,7 @@ header {
 }
 
 main {
-  padding: 1em;
+  padding: .5em;
   background-color: #eee;
   /* background-color: #ddd; */
 }
@@ -49,57 +48,47 @@ h3 {
 
 /* List */
 ul {
-  padding: 3px;
+  padding: 0;
   margin: 0;
 }
 
 li {
-  margin: 2px;
-  padding: 8px;
+  margin: 10px 0px;
+  padding: 3px;
   list-style-type: none;
   font-size: 1em;
-}
-
-li:hover {
-  background-color: #fff;
-  color: #d1333e;
-  outline: 2px solid #d1333e;
-}
-
-li:active {
-  color: red;
 }
 
 /* Link */
 /* Lord Vader Hates Furry Animals */
 a {
-  /* color: #235ea7; */
+  display: block;
+  padding: 7px;
   text-decoration: none;
-  color: #8E3339;
-
 }
 
 a:link {
-  /* color: #235ea7; */
+  color: #8E3339;
 }
 
 a:visited {
-  /* color: #235ea7; */
+  color: #8E3339;
 }
 
-a:hover {}
+a:hover {
+  background-color: #fff;
+  color: #d1333e;
+  outline: 2px solid #d1333e;
+}
 
+li.focus,
 a:focus {
   color: red;
-  outline: 0;
-}
-
-a:focus>li {
   outline: 2px solid red;
   background-color: #fff;
 }
 
-a:active {}
+/* a:active {} */
 
 /*  */
 header>h1 {
