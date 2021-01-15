@@ -23,10 +23,10 @@ const data = {
     { title: '变换：二维矩阵', name: '10-XX-matrix-2d-transform.html' }
   ],
   practices: {
-    06: { title: '旋转：直观演示', name: '../practice/rotate.html' },
-    07: { title: '平移：直观演示', name: '../practice/translate.html' },
-    11: { title: '多重变换：分步演示', name: '../practice/multiple-transformations.html' },
-    13: { title: '变换：放缩 & 偏斜', name: '../practice/scale&skew.html' },
+    06: { title: '演示：旋转', name: '../practice/rotate.html' },
+    07: { title: '演示：平移', name: '../practice/translate.html' },
+    11: { title: '演示：多重变换', name: '../practice/multiple-transformations.html' },
+    13: { title: '演示：放缩 & 偏斜', name: '../practice/scale&skew.html' },
 
   },
   headings: {

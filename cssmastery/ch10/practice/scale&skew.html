@@ -119,7 +119,6 @@
   </style>
   <style id="box">
     .container {
-      margin-top: 5em;
       outline: 2px solid #ccc;
       padding: 3em 2em;
       list-style: none;
@@ -160,10 +159,22 @@
 </head>
 
 <body>
-  <div class="scale div">
-    <ul></ul>
-  </div>
   <div class="skew div">
+    <ul class="container">
+      <li class="box title">沁園春<br>&nbsp;&middot;雪</li>
+      <li class="box">北國風光千里冰封萬里</li>
+      <li class="box">雪飄望長城内外惟餘莽</li>
+      <li class="box">莽大河上下頓失滔滔山</li>
+      <li class="box">舞銀蛇原馳蠟象欲與天</li>
+      <li class="box">公試比高須晴日看紅裝</li>
+      <li class="box">素裹分外妖嬈江山如此</li>
+      <li class="box">多嬌引無數英雄競折腰</li>
+      <li class="box">惜秦皇漢武略輸文采唐</li>
+      <li class="box">宗宋祖稍遜風騷一代天</li>
+      <li class="box">驕成吉思汗只識彎弓射</li>
+      <li class="box">大雕俱往矣數風流人物</li>
+      <li class="box">還看今朝</li>
+    </ul>
     <h1>Fight Club rules</h1>
     <ol class="rules" start="3">
       <li>we could use <strong>skewing</strong> to create a popular “2.5D” effect</li>
@@ -181,21 +192,9 @@
       <li>transform: skewY(15deg);</li>
       <li>transform: skewY(-15deg);</li>
     </ol>
-    <ul class="container">
-      <li class="box title">沁園春<br>&nbsp;&middot;雪</li>
-      <li class="box">北國風光千里冰封萬里</li>
-      <li class="box">雪飄望長城内外惟餘莽</li>
-      <li class="box">莽大河上下頓失滔滔山</li>
-      <li class="box">舞銀蛇原馳蠟象欲與天</li>
-      <li class="box">公試比高須晴日看紅裝</li>
-      <li class="box">素裹分外妖嬈江山如此</li>
-      <li class="box">多嬌引無數英雄競折腰</li>
-      <li class="box">惜秦皇漢武略輸文采唐</li>
-      <li class="box">宗宋祖稍遜風騷一代天</li>
-      <li class="box">驕成吉思汗只識彎弓射</li>
-      <li class="box">大雕俱往矣數風流人物</li>
-      <li class="box">還看今朝</li>
-    </ul>
+  </div>
+  <div class="scale div">
+    <ul></ul>
   </div>
   <script>
     const scale = document.querySelector('.scale');
