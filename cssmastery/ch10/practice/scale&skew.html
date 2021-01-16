@@ -3,13 +3,13 @@
 
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>scale & Skew</title>
-  <style id="font">
+  <style id="base">
     /* http://founder.acgvlyric.org/iu/doku.php */
-
     @font-face {
       font-family: '鋼筆鶴體';
-      src: url('./PenCrane-B.ttf');
+      src: url('./assets/PenCrane-B.ttf');
     }
 
     body {
@@ -19,10 +19,11 @@
     }
 
     .div {
-      width: 95%;
+      width: 100%;
       padding: 1em;
-      margin: 1rem auto;
+      margin: 0 auto;
       outline: 2px solid #ccc;
+      box-sizing: border-box
     }
 
     .middle {
@@ -120,7 +121,8 @@
   <style id="box">
     .container {
       outline: 2px solid #ccc;
-      padding: 3em 2em;
+      padding: 3em 1em;
+      margin: 0;
       list-style: none;
       display: flex;
       flex-direction: row-reverse;
@@ -129,7 +131,7 @@
 
     .box {
       width: 2em;
-      padding: 2em .5em;
+      padding: 2em .4em;
       display: inline-block;
       /* outline: 1px solid #ccc; */
       /* background-color: #12459e; */
@@ -165,7 +167,7 @@
       <li class="box">北國風光千里冰封萬里</li>
       <li class="box">雪飄望長城内外惟餘莽</li>
       <li class="box">莽大河上下頓失滔滔山</li>
-      <li class="box">舞銀蛇原馳蠟象欲與天</li>
+      <li class="box">舞銀蛇原驅蠟象欲與天</li>
       <li class="box">公試比高須晴日看紅裝</li>
       <li class="box">素裹分外妖嬈江山如此</li>
       <li class="box">多嬌引無數英雄競折腰</li>
@@ -222,7 +224,6 @@
       let styleText = `transform: scale(${x}, ${y})`;
       element.style = styleText;
       element.innerText = styleText;
-      // scale.appendChild(element);
     }
   </script>
 </body>

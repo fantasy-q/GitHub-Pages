@@ -22,5 +22,15 @@
 }
 
 .sign {
-  color: rgb(145, 179, 227);
+  color: #777777;
+}
+
+.comment {
+  color: #aaaaaa;
+  font-style: italic;
+}
+
+.function {
+  color: #aa3731;
+  font-weight: bold;
 }
