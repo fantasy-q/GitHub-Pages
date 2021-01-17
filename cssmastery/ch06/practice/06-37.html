@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Vertical centering of multiple items with flexbox</title>
+
+  <style>
+    html,
+    body {
+      height: 100%;
+    }
+
+    body {
+      margin: 0;
+      font-family: Avenir Next, Avenir, Franklin Gothic, sans-serif;
+    }
+
+    .flex-container {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background-color: #12459e;
+    }
+
+    .flex-item {
+      /* max-width: 25em; */
+      padding: 2em;
+      margin: 1em;
+      background-color: #fff;
+    }
+
+  </style>
+</head>
+
+<body>
+  <div class="flex-container">
+
+    <div class="flex-item">
+      <h2>Not so lost in space</h2>
+      <p>This item sits right in the middle of its container, regardless of the dimensions of either.</p>
+    </div>
+
+  </div>
+</body>
+
+</html>
