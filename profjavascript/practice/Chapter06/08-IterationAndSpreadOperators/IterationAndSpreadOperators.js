@@ -17,10 +17,10 @@ const SEPARATION = param => {
       console.log(x);
     }
   }
-  console.log();
   console.log('iterableThings is', iterableThings.constructor.name);
-  iterableThings.forEach((val) => console.log(val));
   console.log();
+  iterableThings.forEach((val) => console.log(val));
+  console.log('why the outputs different?'.padStart(50, '* '));
   iterableThings.forEach((val, key) => console.log(key + ': ' + val));
 } SEPARATION(1);
 

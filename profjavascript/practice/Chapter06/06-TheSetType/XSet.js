@@ -2,6 +2,9 @@
  * Syntax error: Cannot use import statement outside a module
  * https://stackoverflow.com/a/61315567
  * 
+ * Node.js ES6 classes with require
+ * https://stackoverflow.com/a/42684276
+ * 
  * VS Code extensions run in a Node.js environment
  */
 const XSet = require('./03-DefiningFormalSetOperations').XSet;

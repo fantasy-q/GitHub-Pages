@@ -183,8 +183,4 @@ class XNumberSet extends XSet {
   }
 }
 
-/**
- * Node.js ES6 classes with require
- * https://stackoverflow.com/a/42684276
- */
 module.exports = { XSet, XNumberSet };

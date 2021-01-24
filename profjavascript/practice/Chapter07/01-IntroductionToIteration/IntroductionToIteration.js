@@ -11,9 +11,6 @@ for (let index = 0; index < collection.length; ++index) {
 console.log();
 
 collection.forEach((item) => console.log(item));
-// foo
-// bar
-// baz
 
 /**
  * This solves the problem of separately tracking an index
