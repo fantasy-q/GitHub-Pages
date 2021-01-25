@@ -10,6 +10,10 @@
   - [迭代](#迭代)
   - [迭代器模式](#迭代器模式)
     - [可迭代协议](#可迭代协议)
+    - [迭代器协议](#迭代器协议)
+    - [自定义迭代器](#自定义迭代器)
+    - [提前终止迭代器](#提前终止迭代器)
+  - [生成器](#生成器)
 
 ## 迭代
 
@@ -61,3 +65,48 @@
   - **迭代器类型**: formal `iterator-type` classes
 
 ### 自定义迭代器
+
+- `[Symbol.iterator]`
+
+```js
+class Counter {
+  constructor(limit) {
+    this.limit = limit;
+  }
+
+  [Symbol.iterator]() {
+    let
+      count = 1,
+      limit = this.limit;
+    return {
+      next() {
+        if (count <= limit) {
+          return { done: false, value: count++ };
+        } else {
+          return { done: true, value: undefined };
+        }
+      }
+    };
+  }
+}
+```
+
+### 提前终止迭代器
+
+- 还能迭代, 但不继续 `consume` 了, 会执行 `return()` 方法
+  - `消费 consume` 基本就是使用的意思
+
+## 生成器
+
+- ES6 新增特性, 在函数块内 `pause and resume code execution` 的能力
+- `Generator` 的形式是一个函数, 函数名前加 `*` 以表示
+  - 只要能定义**函数**, 就能定义**生成器**
+  - **不能**用**箭头函数**定义生成器
+-  `generator` 实现了 `iterator` 接口, 有 `next()` 
+- `yield` 关键字可以让 `generator` 停止和开始执行
+  - `yield: produce or provide`  对应 `consume`
+  - `yield ==> done: false`
+  - `return ==> done: true`
+  - `yield` 只能在 `generator` 语境中使用
+
+- ! 内容看着很迷, 没有看懂到底有什么用,以后需要时再看
