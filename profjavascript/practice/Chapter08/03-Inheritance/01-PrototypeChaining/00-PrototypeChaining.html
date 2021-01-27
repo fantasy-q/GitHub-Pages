@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>00-PrototypeChaining</title>
+  <style>
+    table,
+    th,
+    td {
+      padding: .2em 1em;
+      border-collapse: collapse;
+      border: 2px solid;
+      text-align: center;
+    }
+
+    table {
+      margin-bottom: 3em;
+    }
+
+    td {
+      width: 5em;
+    }
+
+    .prototype {
+      background-color: rgba(0, 255, 0, .2);
+    }
+
+  </style>
+</head>
+
+<body>
+  <table class="constructor">
+    <tr>
+      <th colspan="2">Parent</th>
+    </tr>
+    <tr>
+      <td>prototype</td>
+      <td class="prototype"></td>
+    </tr>
+  </table>
+  <table class="prototype">
+    <tr>
+      <th colspan="2">Parent Prototype</th>
+    </tr>
+    <tr>
+      <td>constructor</td>
+      <td class=""></td>
+    </tr>
+    <tr>
+      <td>prototype</td>
+      <td class=""></td>
+    </tr>
+  </table>
+
+  <script>
+    const td = document.querySelector('.constructor .prototype');
+    td.addEventListener('mouseover',
+console.log(td);
+
+  </script>
+</body>
+
+</html>
