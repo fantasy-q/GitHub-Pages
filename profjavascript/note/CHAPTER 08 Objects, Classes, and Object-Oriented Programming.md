@@ -182,10 +182,19 @@ Constructor.prototype = {
 ### 原型链
 
 - `ECMA-252` 把**原型链**定义为 `ECMAScript` 的主要继承方式
-- 构造函数, 原型, 实例
-  - **构造函数**有一个**原型对象**
-    - `Constructor.prototype -> [[Prototype]]`
-  - **原型对象**有一个**属性**指向构造函数
-    - `[[Prototype]].contructor -> Constructor()`
-  - **实例**有一个内部指针指向**原型**
-    - `instance.__proto__ -> [[Prototype]]`
+
+- 隐式原型与显式原型
+  - 简单来说, 属性 `__proto__` 是隐式原型; `prototype` 是显式原型
+    - 一个**对象的隐式原型**是其**构造函数的显式原型**
+  - `JavaScript` 所有对象都有一个内置属性 `[[Prototype]]`
+    - 不能直接访问, 但在大多数浏览器中可以通过 `__proto_` 访问
+    - `[[Prototype]]` 是**该对象**的**构造函数**的**显式原型**
+
+#### 默认原型
+
+- 所有**引用类型**继承自 `Object`
+  - `by default`, 任何**函数**的**原型**都是 `Object` 的一个实例
+    - `Function.prototype = new Object()`
+    - `Function.__proto__ -> Object.prototype`
+    - 
+

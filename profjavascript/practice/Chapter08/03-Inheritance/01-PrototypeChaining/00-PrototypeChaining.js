@@ -37,35 +37,3 @@ console.log(instance.getSuperValue());  // true
  *
  * Figure 8-4[c06f004.tif]
  */
-const common = require('../../../js/common');
-const separation = common.separation;
-const alert = common.formattingLog;
-
-
-function Parent() {
-  this.parentProperty = true;
-};
-function Child() {
-  this.childProperty = false;
-};
-
-let parent = new Parent();
-let child = new Child();
-
-const data = {
-  constructor: {
-    Parent,
-    Child,
-  },
-  instance: {
-    parent,
-    child,
-  }
-}
-separation();
-console.log(data);
-separation('Construstor');
-const con = data.constructor;
-
-alert('Parent', con.Parent);
-alert('Parent', con.Parent);

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Prototype Chaining</title>
+  <script src="./PrototypeChaining.js" async></script>
+  <script src="./code.js" async></script>
+  <link rel="stylesheet" href="./PrototypeChaining.css">
+</head>
+
+<body>
+  <header>
+    <h1>原型链</h1>
+  </header>
+  <main>
+    <section class="class">
+      <div class='code highlight'>
+        <div><span class="constructor">SuperType</span> { <span class="keyword">this</span><span
+            class="variable">.property</span> = <span class="keyword">true</span>; }
+          ├── <span class="property">.prototype</span>
+          │ ├── <span class="property">.constructor</span> ⟹ <span class="constructor">SuperType</span>
+          │ ├── <span class="property __proto__">.__proto__ </span> ⟹ <span class="constructor">Object</span><span
+            class="property">.prototype</span>
+          │ │
+          │ ├── <span class="property">.getSuperValue</span> = <span class="variable">function</span> () { <span
+            class="return">return </span><span class="keyword">this</span><span class="variable">.property</span>; }
+          │ │ ├── <span class="property">.prototype</span>
+          │ │ │ ├── <span class="property">.constructor</span> ⟹ <span class="variable">function</span> ()
+          │ │ │ └── <span class="property __proto__">.__proto__ </span> ⟹ <span class="constructor">Object</span><span
+            class="property">.prototype</span>
+          │ │ └── <span class="property __proto__">.__proto__ </span> ⟹ <span class="constructor">Function</span><span
+            class="property">.prototype</span>
+          │
+          └── <span class="property __proto__">.__proto__</span> ⟹ <span class="constructor">Function</span><span
+            class="property">.prototype</span>
+        </div>
+        <div><span class="constructor">SubType</span> { <span class="keyword">this</span><span
+            class="variable">.subproperty</span> = <span class="keyword">false</span>; }
+          ├── <span class="property inherit">.prototype</span> = new <span class="constructor">SuperType</span>();
+          │ ├── <span class="property">.constructor</span> ⟹ <span class="constructor">SuperType</span>
+          │ ├── <span class="property">.property</span> = <span class="keyword">true</span>
+          │ ├── <span class="property __proto__ inherit">.__proto__ </span> ⟹ <span
+            class="constructor">SuperType</span><span class="property">.prototype</span>
+          │ │ └── <span class="property">.getSuperValue</span> ⟹ <span class="variable">function</span> ()
+          │ │
+          │ ├── <span class="property">.getSubValue</span> = <span class="variable">function</span> () { <span
+            class="return">return </span><span class="keyword">this</span><span class="variable">.subproperty</span>; }
+          │ │ ├── <span class="property">.prototype</span>
+          │ │ │ ├── <span class="property">.constructor</span> ⟹ <span class="variable">function</span> ()
+          │ │ │ └── <span class="property __proto__">.__proto__ </span> ⟹ <span class="constructor">Object</span><span
+            class="property">.prototype</span>
+          │ │ └── <span class="property __proto__">.__proto__ </span> ⟹ <span class="constructor">Function</span><span
+            class="property">.prototype</span>
+          │
+          └── <span class="property __proto__">.__proto__</span> ⟹ <span class="constructor">Function</span><span
+            class="property">.prototype</span>
+        </div>
+        <div><span class="constructor">Function</span>
+          ├── <span class="property">.prototype</span>
+          │ ├── <span class="property">.constructor</span> ⟹ <span class="constructor">Function</span>
+          │ └── <span class="property __proto__">.__proto__</span> ⟹ <span class="constructor">Object</span><span
+            class="property">.prototype</span>
+          └── <span class="property __proto__">.__proto__</span> ⟹ <span class="constructor">Function</span><span
+            class="property">.prototype</span>
+        </div>
+        <div><span class="constructor">Object</span>
+          ├── <span class="property">.prototype</span>
+          │ ├── <span class="property">.constructor</span> ⟹ <span class="constructor">Object</span>
+          │ └── <span class="property __proto__">.__proto__ </span> ⟹ <span class="null">null</span>
+          └── <span class="property __proto__">.__proto__</span> ⟹ <span class="constructor">Function</span><span
+            class="property">.prototype</span>
+        </div>
+        <div><span class="constructor">[_Constructor_]</span>
+          ├── <span class="property">.prototype</span>
+          │ ├── <span class="property">.constructor</span> ⟹ <span class="constructor">Constructor</span>
+          │ └── <span class="property __proto__">.__proto__</span> ⟹ <span class="constructor">Object</span><span
+            class="property">.prototype</span>
+          └── <span class="property __proto__">.__proto__</span> ⟹ <span class="constructor">Function</span><span
+            class="property">.prototype</span>
+        </div>
+      </div>
+    </section>
+    <section class="instance">
+      <div class='code highlight'>
+        <div><span class="variable">instance</span> = new <span class="constructor">SubType</span>();
+          ├── <span class="property __proto__">.__proto__</span> ⟹ <span class="constructor">SubType</span><span
+            class="property">.prototype</span>
+          │ ├── <span class="property __proto__">.__proto__</span> ⟹ <span class="constructor">SuperType</span><span
+            class="property">.prototype</span>
+          │ │ ├── <span class="property __proto__">.__proto__</span> ⟹ <span class="constructor">Object</span><span
+            class="property">.prototype</span>
+          │ │ │ ├── ……
+          │ │ │ └── <span class="property __proto__">.__proto__</span> ⟹ <span class="null">null</span>
+          │ │ ├── <span class="property">.getSuperValue</span> ⟹ <span class="variable">function</span> ()
+          │ │ └── ……
+          │ ├── <span class="property">.constructor</span> ⟹ <span class="constructor">SuperType</span>
+          │ ├── <span class="property">.property</span> = <span class="keyword">true</span>
+          │ ├── <span class="property">.getSubValue</span> ⟹ <span class="variable">function</span> ()
+          │ └── ……
+          ├── <span class="property">.subproperty</span> = <span class="keyword">false</span>
+          └── ……
+        </div>
+        <div><span class="variable">instance</span> = new <span class="constructor">SubType</span>();
+          ├── <span class="property">.subproperty</span> = <span class="keyword">false</span>
+          │
+          ├── <span class="property">.constructor</span> ⟹ <span class="constructor">SuperType</span>
+          ├── <span class="property">.property</span> = <span class="keyword">true</span>
+          ├── <span class="property">.getSubValue</span> ⟹ <span class="variable">function</span> ()
+          │
+          ├── <span class="property">.getSuperValue</span> ⟹ <span class="variable">function</span> ()
+          │
+          └── ……
+        </div>
+
+      </div>
+    </section>
+  </main>
+</body>
+
+
+</html>
