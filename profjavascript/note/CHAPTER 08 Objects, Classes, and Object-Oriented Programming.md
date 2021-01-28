@@ -6,11 +6,16 @@
   - [理解对象](#理解对象)
     - [属性类型](#属性类型)
     - [合并对象](#合并对象)
-    - [增强语法 Enhanced Syntax](#增强语法-enhanced-syntax)
+    - [增强语法](#增强语法)
     - [对象解构](#对象解构)
   - [创建对象](#创建对象)
     - [设计模式](#设计模式)
       - [原型模式](#原型模式)
+        - [理解原型](#理解原型)
+        - [原型层级](#原型层级)
+      - [对象迭代](#对象迭代)
+  - [继承](#继承)
+    - [原型链](#原型链)
 
 ## 理解对象
 ### 属性类型
@@ -183,18 +188,36 @@ Constructor.prototype = {
 
 - `ECMA-252` 把**原型链**定义为 `ECMAScript` 的主要继承方式
 
-- 隐式原型与显式原型
-  - 简单来说, 属性 `__proto__` 是隐式原型; `prototype` 是显式原型
-    - 一个**对象的隐式原型**是其**构造函数的显式原型**
-  - `JavaScript` 所有对象都有一个内置属性 `[[Prototype]]`
-    - 不能直接访问, 但在大多数浏览器中可以通过 `__proto_` 访问
-    - `[[Prototype]]` 是**该对象**的**构造函数**的**显式原型**
+- 用书上的例子, 做了一个稍微直观点的[图解](..\practice\Chapter08\03-Inheritance\01-PrototypeChaining\PrototypeChaining\PrototypeChaining.html), 配合控制台慢慢看
 
-#### 默认原型
+- **字面量**会**重写**被赋值的对象
 
-- 所有**引用类型**继承自 `Object`
-  - `by default`, 任何**函数**的**原型**都是 `Object` 的一个实例
-    - `Function.prototype = new Object()`
-    - `Function.__proto__ -> Object.prototype`
-    - 
+- 原型链的**问题**
+  - 原型中的**引用值**会在所有实例间**共享**
+
+  - 子类 `SubType` 实例化时不能给超类 `SuperType` 传参
+
+### 继承方式
+
+-  构造函数盗用
+  - 构造函数盗用 (Constructor Stealing) 用于解决原型**引用值共享**的问题
+
+    - 基本思路: 在子类构造函数中调用 `call` 超类构造函数
+
+    ```js
+    function SubType() {
+     // inherit from SuperType
+     SuperType.call(this);
+    }
+    ```
+
+    - 又称**对象伪装** (Object Masquerading) 或**经典继承** (Classical Inheritance)
+
+  - 子类**可以**向超类**传递参数**
+
+  - 子类**不能**访问超类原型上的**方法**
+
+- **组合继承**综合了原型链和构造函数盗用
+  - 即使用**原型链**继承原型属性和方法, 使用**盗用**继承实例属性
+  - 也叫伪经典继承 (Pseudo-classical Inheritance)
 

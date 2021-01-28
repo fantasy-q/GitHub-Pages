@@ -2,30 +2,39 @@ body {
   padding: 0;
   margin: 0 auto;
   width: 99%;
-  min-width: 85rem;
+  min-width: 40em;
   background-color: #f5f5f5;
 }
 
 header {
   text-align: center;
+  width: 35em;
+  margin: 0 auto;
 }
 
 main {
   margin: 0 auto;
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-evenly;
+}
+
+footer {
+  display: block;
+  padding: 20px 0;
 }
 
 section {
   display: inline-block;
-  width: 48%;
 }
 
 .code {
+  min-width: 35em;
   font-family: monospace;
   color: #777777;
   border: 1px solid;
   padding: 0 2rem;
+  margin: 1rem 0;
   font-size: 1.3rem;
   min-height: 80vh;
 }
@@ -55,6 +64,10 @@ section {
   color: #9c5d27;
 }
 
+.highlight .string {
+  color: #448c63;
+}
+
 .highlight .return {
   color: #4b69c6;
 }
@@ -63,15 +76,19 @@ section {
   color: #a55d59;
 }
 
+.highlight .comment {
+  color: #aaaaaa;
+}
+
 .highlight .__proto__ {
   color: #7a3e9d;
   /* font-weight: bold; */
 }
 
 .highlight .null {
-  border: 1px solid #f3e0e7;
+  border: 1px solid #e9c1d0;
   border-radius: 7px;
-  background-color: #f3e0e7;
+  background-color: #e9c1d0;
   color: #9c5d75;
 }
 

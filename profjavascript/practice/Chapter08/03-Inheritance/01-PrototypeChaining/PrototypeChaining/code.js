@@ -7,7 +7,7 @@ for (const code of codes) {
     // 换行
     div.innerHTML = div.innerHTML.replace(/\n/g, '<br>');
     // 对齐
-    div.innerHTML = div.innerHTML.replace(/│/g, '│' + '&ensp;'.repeat(2));
+    div.innerHTML = div.innerHTML.replace(/│/g, '│' + '&ensp;'.repeat(1));
   }
 }
 
