@@ -1,6 +1,7 @@
 # 第八章 对象、类与面向对象编程
 
 ## 目录
+
 - [第八章 对象、类与面向对象编程](#第八章-对象类与面向对象编程)
   - [目录](#目录)
   - [理解对象](#理解对象)
@@ -16,6 +17,12 @@
       - [对象迭代](#对象迭代)
   - [继承](#继承)
     - [原型链](#原型链)
+    - [继承方式](#继承方式)
+  - [类](#类)
+    - [类定义](#类定义)
+    - [类构造函数](#类构造函数)
+    - [实例, 原型和类成员](#实例-原型和类成员)
+    - [继承](#继承-1)
 
 ## 理解对象
 ### 属性类型
@@ -218,6 +225,78 @@ Constructor.prototype = {
   - 子类**不能**访问超类原型上的**方法**
 
 - **组合继承**综合了原型链和构造函数盗用
+  
   - 即使用**原型链**继承原型属性和方法, 使用**盗用**继承实例属性
   - 也叫伪经典继承 (Pseudo-classical Inheritance)
 
+- **原型式继承** (Prototypal Inheritance)
+  
+  - 引用值会共享
+- **寄生式继承** (Parasitic Inheritance)
+
+- **寄生式组合继承** 
+
+## 类
+
+- 前面了解了如何只使用 `ECMAScript 5` 的特性, 模拟**类**的行为
+
+  - 各种策略都有自己的问题, 实现继承的代码显得冗长
+  - `ECMAScript 6` 引入 `class` 关键字正式定义**类**的能力
+
+  - 但实际上仍然时原型还构造函数的概念
+
+### 类定义
+
+- **定义类**两种主要方式
+
+  ```js
+  // class declaration
+  class Person {}
+
+  // class expression
+  const Animal = class { };
+  ```
+  
+  - 函数声明可以提升, 但类定义**不能提升** (hoist)
+  - 函数受函数作用域限制, 类受**块作用域**限制
+  
+- 类的组成
+
+  ```js
+  // Valid empty class definition
+  class Foo {}
+  // Valid class definition with constructor
+  class Bar {
+   constructor() {}
+  }
+  // Valid class definition with getter
+  class Baz {
+   get myBaz() {}
+  }
+  // Valid class definition with static method
+  class Qux {
+   static myQux() {}
+  } 
+  ```
+
+### 类构造函数
+
+- `contructor` 关键字用于定义类构造函数
+- 实例化 (使用 `new`)
+  1. 在内存中创建一个**新对象** `new_obj`
+  2. ``new_obj.[[Prototype]] -> [Constructor].prototype`
+  3. `this -> new_obj`
+  4. 执行**构造函数**内部的代码
+  5. `return tmp_obj || new_obj`
+
+- **类**就是一种特殊的函数
+
+### 实例, 原型和类成员
+
+- 实例成员
+- 原型方法与访问器
+- 静态类方法
+- 非函数原型和类成员
+- 迭代器与生成器
+
+### 继承

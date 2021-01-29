@@ -24,4 +24,3 @@ let nicknameIter = p.createNicknameIterator();
 console.log(nicknameIter.next().value);  // Jack
 console.log(nicknameIter.next().value);  // Jake
 console.log(nicknameIter.next().value);  // J-Dog
-ClassGeneratorMethodExample01.js

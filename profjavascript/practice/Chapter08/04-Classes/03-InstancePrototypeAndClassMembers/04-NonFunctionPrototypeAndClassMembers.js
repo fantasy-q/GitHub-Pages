@@ -12,4 +12,3 @@ Person.prototype.name = 'Jake';
 
 let p = new Person();
 p.sayName();  // My name is Jake 
-ClassDataMembersExample01.js
