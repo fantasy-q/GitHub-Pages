@@ -300,3 +300,8 @@ Constructor.prototype = {
 - 迭代器与生成器
 
 ### 继承
+
+- `extends` 继承任何拥有 `[[Constructor]]` 和原型的对象
+  - 可以继承**类**, 也可以继承**构造函数**
+
+- `super() -> [[HomeObject]].prototype`
