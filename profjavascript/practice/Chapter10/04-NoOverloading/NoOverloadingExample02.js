@@ -7,3 +7,5 @@ addSomeNumber = function(num) {
 };
                    
 let result = addSomeNumber(100);   // 300
+
+console.log(result);
