@@ -28,4 +28,3 @@ async function qux() {
 }
 qux().then(console.log);
 // qux
-AsyncExample01.js

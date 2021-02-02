@@ -11,12 +11,11 @@ function double(value, success, failure) {
   }, 1000);
 }
 
-const successCallback = (x) => {
-  double(x, (y) => console.log(`Success: ${y}`));
-};
+const successCallback = (x) => console.log(`Success: ${x}`);
 const failureCallback = (e) => console.log(`Failure: ${e}`);
 
-double(3, successCallback, failureCallback);
+double(3, successCallback, failureCallback); 
+double('b', successCallback, failureCallback);
 
-// Success: 12 (printed after roughly 1000ms)
-NestingAsyncCallbacksExample01.js
+// Success: 6 (printed after roughly 1000ms) 
+// Failure: Must provide number as first argument (printed after roughly 1000ms)

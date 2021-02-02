@@ -11,12 +11,11 @@ function double(value, success, failure) {
   }, 1000);
 }
 
-const successCallback = (x) => console.log(`Success: ${x}`);
+const successCallback = (x) => {
+  double(x, (y) => console.log(`Success: ${y}`));
+};
 const failureCallback = (e) => console.log(`Failure: ${e}`);
 
-double(3, successCallback, failureCallback); 
-double('b', successCallback, failureCallback);
+double(3, successCallback, failureCallback);
 
-// Success: 6 (printed after roughly 1000ms) 
-// Failure: Must provide number as first argument (printed after roughly 1000ms)
-FailureHandlingExample01.js
+// Success: 12 (printed after roughly 1000ms)
