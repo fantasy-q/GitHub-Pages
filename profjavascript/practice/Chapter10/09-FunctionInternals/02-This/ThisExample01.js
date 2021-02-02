@@ -1,4 +1,5 @@
-window.color = 'red';
+// window.color = 'red';
+global.color = 'red';
 let o = { 
   color: 'blue'
 };

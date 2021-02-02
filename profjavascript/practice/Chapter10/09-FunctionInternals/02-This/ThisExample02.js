@@ -4,8 +4,10 @@ let o = {
 };
                    
 let sayColor = () => console.log(this.color);
-                   
+
 sayColor();     // 'red'
                    
 o.sayColor = sayColor;
 o.sayColor();   // 'red'
+
+console.log(window);

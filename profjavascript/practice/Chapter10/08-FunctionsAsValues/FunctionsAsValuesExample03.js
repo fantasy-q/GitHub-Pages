@@ -1,3 +1,4 @@
+// 3
 function createComparisonFunction(propertyName) {
   return function(object1, object2) {
     let value1 = object1[propertyName];
@@ -12,3 +13,15 @@ function createComparisonFunction(propertyName) {
     }
   };
 }
+
+// 4
+let data = [
+  { name: "Zachary", age: 28 },
+  { name: "Nicholas", age: 29 }
+];
+
+data.sort(createComparisonFunction("name"));
+console.log(data[0].name);  // Nicholas
+
+data.sort(createComparisonFunction("age"));
+console.log(data[0].name);  // Zachary

@@ -1,3 +1,6 @@
 function sayHi(name, message) {
   console.log("Hello " + name + ", " + message);
 }
+
+sayHi('name');
+sayHi('name', 'message');
