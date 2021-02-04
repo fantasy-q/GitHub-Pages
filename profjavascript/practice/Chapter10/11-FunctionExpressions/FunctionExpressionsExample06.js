@@ -1,4 +1,5 @@
 // OK
+let condition = false;
 let sayHi;
 if(condition) {
   sayHi = function() {
@@ -9,3 +10,5 @@ if(condition) {
     console.log("Yo!");
   };
 }
+
+sayHi();

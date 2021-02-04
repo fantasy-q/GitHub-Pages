@@ -1,4 +1,7 @@
 // Never do this!
+
+let condition = false;
+
 if (condition) {
   function sayHi() {
     console.log('Hi!');
@@ -8,3 +11,5 @@ if (condition) {
     console.log('Yo!');
   }
 }
+
+sayHi();

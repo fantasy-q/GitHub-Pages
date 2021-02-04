@@ -1,0 +1,109 @@
+body {
+  padding: 0;
+  margin: 0 auto;
+  width: 99%;
+  min-width: 40em;
+  background-color: #f5f5f5;
+}
+
+header {
+  text-align: center;
+  width: 35em;
+  margin: 0 auto;
+}
+
+main {
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+footer {
+  display: block;
+  padding: 20px 0;
+}
+
+section {
+  display: block;
+}
+
+.code {
+  min-width: 70em;
+  min-height: 50vh;
+
+  padding: 0 2rem;
+  margin: 1rem 0;
+  border: 1px solid;
+
+  font-family: monospace;
+  font-size: 1.3rem;
+  color: #777777;
+}
+
+.code {
+  display: flex;
+  justify-content: space-between;
+}
+
+.code>div {
+  /* background-color: #ccc; */
+}
+
+.code div {
+  margin: 2rem 0;
+}
+
+.code .table-div-01 {
+  position: relative;
+  right: 300px;
+}
+
+.table-div-01 .t01 {
+  position: relative;
+  right: 200px;
+}
+
+.table-div-01 .t02 {
+  position: relative;
+  left: 200px;
+  top: 30px;
+}
+
+.table-div-01 .t03 {
+  position: relative;
+  left: 200px;
+  bottom: 30px;
+}
+
+.code .table-div-02 {
+  position: relative;
+  right: 400px;
+  bottom: 60px;
+}
+
+.table-div-02>* {
+  position: relative;
+}
+
+.table-div-02 .t01 {
+  top: 20px;
+}
+
+.table-div-02 .t02 {
+  bottom: 20px;
+}
+
+.table-div-02 .t03 {
+  left: 350px;
+  top: 50px;
+}
+
+.table-div-02 .t04 {
+  left: 350px;
+}
+
+.table-div-02 .t05 {
+  left: 350px;
+  bottom: 50px;
+}

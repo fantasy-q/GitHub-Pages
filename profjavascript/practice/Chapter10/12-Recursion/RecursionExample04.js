@@ -5,3 +5,7 @@ const factorial = (function f(num) {
     return num * f(num - 1);
   }
 });
+
+let anotherFactorial = factorial;
+// factorial = null;
+console.log(anotherFactorial(4));

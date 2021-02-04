@@ -1,0 +1,14 @@
+.compare-ctx {
+  background-color: #f1d7c6;
+}
+
+.compare-ctx.test {
+  background-color: #b6d67a;
+}
+
+.global-obj {
+  background-color: #f3d3eb;
+}
+.global-obj.test2 {
+  background-color: #8de7ee;
+}

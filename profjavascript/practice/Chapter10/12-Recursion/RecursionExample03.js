@@ -5,3 +5,7 @@ function factorial(num) {
     return num * arguments.callee(num - 1);
   }
 }
+
+let anotherFactorial = factorial;
+factorial = null;
+console.log(anotherFactorial(4));

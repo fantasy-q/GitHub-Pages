@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Scope Chaining</title>
+  <link rel="stylesheet" href="./css/ScopeChaining.css">
+  <link rel="stylesheet" href="./css/highlight.css">
+  <link rel="stylesheet" href="./css/Table.css">
+  <link rel="stylesheet" href="./css/relative.css">
+</head>
+
+<body>
+  <header>
+    <h1>作用域链</h1>
+  </header>
+  <main>
+    <section class="normal">
+      <div class='code highlight'>
+        <div class="code-normal prettify">
+          <pre>
+            function compare(value1, value2) {
+              if (value1 < value2) {
+                return -1; 
+              } else if (value1> value2) {
+                return 1;
+              } else {
+                return 0;
+              }
+            }
+          </pre>
+          let result = compare(5, 10);
+        </div>
+
+        <div class="table-div-01">
+
+          <div class="t02 global-variable-object">
+            <table class='table'>
+              <tr>
+                <th class="global-obj" colspan='2'><span class="constructor">Global</span> variable object</th>
+              </tr>
+              <tr>
+                <td class="global-obj"><span class='function'>compare</span></td>
+                <td class="compare-ctx"></td>
+              </tr>
+              <tr>
+                <td class="global-obj"><span class="variable">result</span></td>
+                <td class="global-obj"><span class="undefined">undefined</span></td>
+              </tr>
+            </table>
+          </div>
+
+          <div class="t01 compare-execution-context">
+            <table class='table'>
+              <tr>
+                <th class="compare-ctx" colspan='2'><span class='function'>compare</span>() execution context</th>
+              </tr>
+              <tr>
+                <td class="compare-ctx" rowspan="2">scope chain</td>
+                <td class="global-obj">1</td>
+              </tr>
+              <tr>
+                <td>0</td>
+              </tr>
+            </table>
+          </div>
+
+          <div class="t03 compare-activation-object">
+            <table class='table'>
+              <tr>
+                <th colspan='2'><span class='function'>compare</span>() activation object</th>
+              </tr>
+              <tr>
+                <td><span class="property">arguments</span></td>
+                <td>[5, 10]</td>
+              </tr>
+              <tr>
+                <td><span class="variable">value1</span></td>
+                <td>5</td>
+              </tr>
+              <tr>
+                <td><span class="variable">value2</span></td>
+                <td>10</td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- -------------------------------------------------------------------- -->
+    <section class="closure">
+      <div class='code highlight'>
+        <div class="code-closure prettify">
+          <pre>
+            function createComparisonFunction(propertyName) {
+              return function (object1, object2) {
+                let value1 = object1[propertyName];
+                let value2 = object2[propertyName];
+
+                if (value1 < value2) {
+                  return -1;
+                } else if (value1 > value2) {
+                  return 1;
+                } else {
+                  return 0;
+                }
+              };
+            }
+          </pre><br><br><br><br><br><br>
+          let compare = createComparisonFunction('name');<br>
+          let result = compare({ name: 'Nicholas' }, { name: 'Matt' });
+        </div>
+
+        <div class="table-div-02">
+          <div class=" t03 global-variable-object">
+            <table class='table'>
+              <tr>
+                <th class="-" colspan='2'><span class="constructor">Global</span> variable object</th>
+              </tr>
+              <tr>
+                <td class=""><span class='function'>createComparisonFunction</span></td>
+                <td class=""></td>
+              </tr>
+              <tr>
+                <td class="-"><span class="variable">result</span></td>
+                <td class="-"><span class="undefined">undefined</span></td>
+              </tr>
+            </table>
+          </div>
+
+          <div class="t01 create-execution-context">
+            <table class='table'>
+              <tr>
+                <th class="-ctx" colspan='2'><span class='function'>createComparisonFunction</span>() <br>
+                  execution context</th>
+              </tr>
+              <tr>
+                <td class="-ctx" rowspan="2">scope chain</td>
+                <td class="-obj">1</td>
+              </tr>
+              <tr>
+                <td>0</td>
+              </tr>
+            </table>
+          </div>
+
+          <div class="t04 create-variable-object">
+            <table class='table'>
+              <tr>
+                <th class="-" colspan='2'><span class="constructor">createComparisonFunction</span>() <br>
+                  activation object</th>
+              </tr>
+              <tr>
+                <td><span class="property">arguments</span></td>
+                <td>["name"]</td>
+              </tr>
+              <tr>
+                <td><span class="variable">propertyName</span></td>
+                <td>"name"</td>
+              </tr>
+            </table>
+          </div>
+
+          <div class="t02 anonymous-execution-context">
+            <table class='table'>
+              <tr>
+                <th class="" colspan='2'><span class='function'>anonymous</span> execution context</th>
+              </tr>
+              <tr>
+                <td class="" rowspan="3">scope chain</td>
+                <td class="">2</td>
+              </tr>
+              <tr>
+                <td>1</td>
+              </tr>
+              <tr>
+                <td>0</td>
+              </tr>
+            </table>
+          </div>
+
+          <div class="t05 closure-variable-object">
+            <table class='table'>
+              <tr>
+                <th class="-" colspan='2'><span class="constructor">Closure</span> activation object</th>
+              </tr>
+              <tr>
+                <td><span class="property">arguments</span></td>
+                <td>[{name: 'Nicholas'},<br> {name: 'Matt'}]</td>
+              </tr>
+              <tr>
+                <td><span class="variable">value1</span></td>
+                <td>{name: 'Nicholas'}</td>
+              </tr>
+              <tr>
+                <td><span class="variable">value2</span></td>
+                <td>{name: 'Matt'}</td>
+              </tr>
+            </table>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <footer> </footer>
+  <script src="./js/common.js"></script>
+  <script src="./js/Closure01.js"></script>
+  <script src="./js/Closure02.js"></script>
+  <script src="./js/pretiffy.js"></script>
+  <script src="./js/relative.js"></script>
+</body>
+
+
+</html>

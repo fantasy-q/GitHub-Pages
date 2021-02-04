@@ -12,3 +12,6 @@ function fibImpl(a, b, n) {
   }
   return fibImpl(b, a + b, n - 1);
 }
+
+// 2
+console.log(fib(1000));

@@ -1,0 +1,21 @@
+.table {
+  border-collapse: collapse;
+  color: black;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.table th {
+  border: 2px solid;
+  text-transform: capitalize;
+}
+
+.table th span {
+  text-transform: none;
+}
+
+.table td {
+  width: 5em;
+  border: 2px solid;
+
+}

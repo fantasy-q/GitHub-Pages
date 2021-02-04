@@ -14,7 +14,7 @@
   - [理解参数](#理解参数)
   - [没有重载](#没有重载)
   - [默认参数值](#默认参数值)
-  - [参数展开](#参数展开)
+  - [实参展开 & 形参剩余](#实参展开--形参剩余)
   - [声明 vs. 表达式](#声明-vs-表达式)
   - [函数作为值](#函数作为值)
   - [函数内部](#函数内部)
@@ -22,6 +22,7 @@
   - [函数表达式](#函数表达式)
   - [递归](#递归)
   - [尾调用优化](#尾调用优化)
+    - [优化案例](#优化案例)
   - [闭包](#闭包)
   - [立即调用的函数表达式](#立即调用的函数表达式)
   - [私有变量](#私有变量)
@@ -102,17 +103,106 @@ let name = (param) => { function body }
 - `this`
   - 在**标准函数**中与**箭头函数**中分别有不同行为
     - 标准函数: 把函数当成方法调用的**语境对象**, 称为 `this` 值
+    - 箭头函数: 保留定义该函数的**语境**
 - `caller`
+  - 调用当前函数的函数, 全局则为 `null`
+  - 对比当前函数 `arguments.callee`
+- `new.target`
+  - 是 `new` 的 target, 即是被 `new` 调用的
 
 ## 函数属性与方法
 
+- 函数是对象, 因此有属性和方法
+- 属性
+  - `length` 
+  - `prototype`
+- 方法
+  - `apply()`
+  - `call()`
+  - `bind()`
+  - 将任意对象设置为任意函数的作用域
+
 ## 函数表达式
+
+- 函数声明的特点是**函数声明提升**
+- 函数表达式创建的函数叫**匿名函数** (`Anonymous or lambda functions`)
 
 ## 递归
 
+- 函数调用自己
+- 通过函数名, `callee`, 命名函数表达式
+
 ## 尾调用优化
 
+- 尾调用: 外部函数返回值是内部函数的返回值
+
+  ```js
+  function outerFunction() {
+   return innerFunction(); // tail call
+  }
+  ```
+
+- ES6 优化前: 每一次嵌套, 多一个栈帧
+  1. 进入 `outerFunction` 函数体, 第一个栈帧
+  2. 执行 `outerFunction` 函数体, 计算 `return` 即 `innerFunction`
+  3. 进入 `innerFunction` 函数体, 第二个栈帧
+  4. 执行 `innerFunction` 函数体, 计算 `return` ,返回
+  5. 回到 `outerFunction` , 返回
+  6. 栈帧依次弹出
+- ES6 优化后: 无论调用多少次嵌套, 都只有一个栈帧
+  1. 进入 `outerFunction` 函数体, 第一个栈帧
+  2. 执行 `outerFunction` 函数体, 计算 `return` 即 `innerFunction`
+  3. 发现 `innerFunction` 的返回也是 `outerFunction` 的返回
+  4. 弹出 `outerFunction` 栈帧
+  5. 进入 `innerFunction` 函数体, 第二个栈帧
+  6. 执行 `innerFunction` 函数体, 计算 `return` ,返回
+  7. 弹出 `innerFunction` 栈帧
+- 优化条件: 确定外部栈帧无存在必要
+  - 严格模式 `"use strict";`
+  - 外函数返回值是对尾调用函数的调用
+  - 尾调用函数返回后无额外逻辑
+  - 尾调用函数不是引用外部函数作用域中自由变量的**闭包**
+
+### 优化案例
+
+- 递归计算斐波那契数列
+
+```js
+// memory complexity of O(2^n)
+function fib(n) {
+  if (n < 2) {
+    return n;
+  }
+  return fib(n - 1) + fib(n - 2);
+}
+console.log(fib(1000));  // 内存炸了
+
+// all tail call optimization requirements are satisfied
+"use strict";
+
+// base case
+function fib(n) {
+  return fibImpl(0, 1, n); 
+}
+
+// recursive case
+function fibImpl(a, b, n) {
+  if (n === 0) {
+    return a;
+  }
+  return fibImpl(b, a + b, n - 1);
+}
+
+console.log(fib(1000));  // 4.346655768693743e+208
+```
+
 ## 闭包
+
+- 闭包指**引用了另一个函数作用域中的变量**的函数
+- 作用域链
+  - 调用函数, 创建执行语境, 创建作用域链
+  - 向外串起所有包含函数活动对象, 直到全局执行语境
+  - 在执行语境中有个对象来代表变量
 
 ## 立即调用的函数表达式
 
